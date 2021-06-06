@@ -12,11 +12,7 @@ public class PersonCollector implements Collector<String, Person> {
 
 	@Override
 	public Person collectInfo(String id) {
-//		return dao.selectById(id);
-		return Person.builder()
-				.id(id)
-				.className("5年一班")
-				.build();
+		return dao.selectById(id);
 	}
 
 }

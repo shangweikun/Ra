@@ -24,13 +24,13 @@ public class Main {
 				new PersonCollector(dao)
 		);
 		CheckWorker<Person> endPoint = new FinalCheckWorker<>(true);
-		CheckWorker<Person> classAdjudicator = new CheckWorker<>(
+		CheckWorker<Person> classNameAdjudicator = new CheckWorker<>(
 				new ClassNameChecker(),
 				null
 		);
 		idAdjudicator.setIsTrueChoose(endPoint);
-		idAdjudicator.setIsFalseChoose(classAdjudicator);
-		classAdjudicator.setIsTrueChoose(endPoint);
+		idAdjudicator.setIsFalseChoose(classNameAdjudicator);
+		classNameAdjudicator.setIsTrueChoose(endPoint);
 		this.personAdjudicator = idAdjudicator;
 	}
 
