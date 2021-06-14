@@ -1,8 +1,8 @@
-package com.example.first.demo.check.impl;
+package com.example._1.demo.check.impl;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.example.first.demo.check.AbstractChecker;
-import com.example.first.demo.entity.Person;
+import com.example._1.demo.check.AbstractChecker;
+import com.example._1.demo.entity.Person;
 
 public class ClassNameChecker extends AbstractChecker<Person> {
 

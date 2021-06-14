@@ -1,4 +1,4 @@
-package com.example.first.demo.entity;
+package com.example._1.demo.entity;
 
 import lombok.Builder;
 import lombok.Data;

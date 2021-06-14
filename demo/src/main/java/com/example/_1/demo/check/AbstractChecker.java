@@ -1,4 +1,4 @@
-package com.example.first.demo.check;
+package com.example._1.demo.check;
 
 public abstract class AbstractChecker<T> implements Checker<T> {
 

@@ -1,8 +1,8 @@
-package com.example.first.demo.check.worker;
+package com.example._1.demo.check.worker;
 
-import com.example.first.demo.chooser.AbstractChooser;
-import com.example.first.demo.check.AbstractChecker;
-import com.example.first.demo.collect.Collector;
+import com.example._1.demo.chooser.AbstractChooser;
+import com.example._1.demo.check.AbstractChecker;
+import com.example._1.demo.collect.Collector;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

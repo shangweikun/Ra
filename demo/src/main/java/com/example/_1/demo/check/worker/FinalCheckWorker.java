@@ -1,6 +1,6 @@
-package com.example.first.demo.check.worker;
+package com.example._1.demo.check.worker;
 
-import com.example.first.demo.exception.NotSupportMethodException;
+import com.example._1.demo.exception.NotSupportMethodException;
 
 @SuppressWarnings("rawtypes")
 public class FinalCheckWorker<R> extends CheckWorker<R> {

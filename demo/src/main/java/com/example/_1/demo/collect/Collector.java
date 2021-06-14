@@ -1,4 +1,4 @@
-package com.example.first.demo.collect;
+package com.example._1.demo.collect;
 
 public interface Collector<T, R> {
 	R collectInfo(T t);

@@ -1,16 +1,16 @@
-package com.example.first.demo;
+package com.example._1.demo;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.example.first.demo.check.AbstractChecker;
-import com.example.first.demo.chooser.AbstractChooser;
-import com.example.first.demo.check.impl.ClassNameChecker;
-import com.example.first.demo.check.impl.PersonIdChecker;
-import com.example.first.demo.check.worker.CheckWorker;
-import com.example.first.demo.check.worker.FinalCheckWorker;
-import com.example.first.demo.collect.Collector;
-import com.example.first.demo.collect.impl.PersonCollector;
-import com.example.first.demo.dao.PersonDAO;
-import com.example.first.demo.entity.Person;
+import com.example._1.demo.check.worker.CheckWorker;
+import com.example._1.demo.check.worker.FinalCheckWorker;
+import com.example._1.demo.check.AbstractChecker;
+import com.example._1.demo.chooser.AbstractChooser;
+import com.example._1.demo.check.impl.ClassNameChecker;
+import com.example._1.demo.check.impl.PersonIdChecker;
+import com.example._1.demo.collect.Collector;
+import com.example._1.demo.collect.impl.PersonCollector;
+import com.example._1.demo.dao.PersonDAO;
+import com.example._1.demo.entity.Person;
 
 public class Main {
 

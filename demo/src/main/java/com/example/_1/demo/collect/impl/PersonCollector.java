@@ -1,8 +1,8 @@
-package com.example.first.demo.collect.impl;
+package com.example._1.demo.collect.impl;
 
-import com.example.first.demo.collect.Collector;
-import com.example.first.demo.dao.PersonDAO;
-import com.example.first.demo.entity.Person;
+import com.example._1.demo.collect.Collector;
+import com.example._1.demo.dao.PersonDAO;
+import com.example._1.demo.entity.Person;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
