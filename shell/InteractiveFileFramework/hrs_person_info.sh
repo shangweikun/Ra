@@ -155,42 +155,37 @@ backupAndClearHistoryFile(){
   echo "$(date +'%Y-%m-%d %H:%M:%S'): history file clear" >> $PATH_LOG_FILE
 
   #unzip files
-  find $PATH_DATA_DIR -name "$PRE_DATE" -type d >> $PATH_LOG_FILE
-  if [ 0 -lt $( find $PATH_DATA_DIR -name "$PRE_DATE" -type d | wc -l ) ] ; then {
-      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_DATA_DIR/$PRE_DATE" >> $PATH_LOG_FILE
-      rm -rf $PATH_DATA_DIR/$PRE_DATE
+  if [ 0 -lt $( find $PATH_DATA_DIR -type d -maxdepth 1 -name "[0-9]*" -ctime 7 | wc -l ) ] ; then {
+      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm unzip files" >> $PATH_LOG_FILE
+      find $PATH_DATA_DIR -type d -maxdepth 1 -name "[0-9]*" -ctime 7 -exec rm -r {} \; >> $PATH_LOG_FILE
   }
   fi
 
   #tar file
-  find $PATH_DATA_DIR -name "$FILE_NAME_PREFIX$PRE_DATE$FILE_NAME_SUFFIX.tar" >> $PATH_LOG_FILE
-  if [ 0 -lt $( find $PATH_DATA_DIR -name "$FILE_NAME_PREFIX$PRE_DATE$FILE_NAME_SUFFIX.tar" | wc -l ) ] ; then {
-      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_DATA_DIR/$FILE_NAME_PREFIX$PRE_DATE$FILE_NAME_SUFFIX.tar" >> $PATH_LOG_FILE
-      rm -rf $PATH_DATA_DIR/$FILE_NAME_PREFIX$PRE_DATE$FILE_NAME_SUFFIX.tar
+  if [ 0 -lt $( find $PATH_DATA_DIR -maxdepth 1 -name "$FILE_NAME_PREFIX[0-9]*$FILE_NAME_SUFFIX.tar" | wc -l ) ] ; then {
+      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_DATA_DIR/$FILE_NAME_PREFIX[0-9]*$FILE_NAME_SUFFIX.tar" >> $PATH_LOG_FILE
+      find $PATH_DATA_DIR -maxdepth 1 -name "$FILE_NAME_PREFIX[0-9]*$FILE_NAME_SUFFIX.tar" -ctime 7 -exec rm {} \; >> $PATH_LOG_FILE
   }
   fi
 
   #log
-  find $PATH_LOG_DIR -name "hrs_person_$PRE_DATE.log" >> $PATH_LOG_FILE
-  if [ 0 -lt $( find $PATH_LOG_DIR -name "hrs_person_$PRE_DATE.log" | wc -l ) ] ; then {
-      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_LOG_DIR/hrs_person_$PRE_DATE.log" >> $PATH_LOG_FILE
-      rm -rf $PATH_LOG_DIR/hrs_person_$PRE_DATE.log
+  if [ 0 -lt $( find $PATH_LOG_DIR -maxdepth 1 -name "hrs_person_[0-9]*.log" | wc -l ) ] ; then {
+      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_LOG_DIR/hrs_person_[0-9]*.log" >> $PATH_LOG_FILE
+      find $PATH_LOG_DIR -maxdepth 1 -name "hrs_person_[0-9]*.log" -ctime 7 -exec rm -r {} \;
   }
   fi
 
   #sqlloader log
-  find $PATH_LOG_DIR -name "hrs_person_sql_loader_$PRE_DATE.log" >> $PATH_LOG_FILE
-  if [ 0 -lt $( find $PATH_LOG_DIR -name "hrs_person_sql_loader_$PRE_DATE.log" | wc -l ) ] ; then {
-      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_LOG_DIR/hrs_person_sql_loader_$PRE_DATE.log" >> $PATH_LOG_FILE
-      rm -rf $PATH_LOG_DIR/hrs_person_sql_loader_$PRE_DATE.log
+  if [ 0 -lt $( find $PATH_LOG_DIR -maxdepth 1 -name "hrs_person_sql_loader_[0-9]*.log" -ctime 7  | wc -l ) ] ; then {
+      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_LOG_DIR/hrs_person_sql_loader_[0-9]*.log" >> $PATH_LOG_FILE
+      find $PATH_LOG_DIR -maxdepth 1 -name "hrs_person_sql_loader_[0-9]*.log" -ctime 7 rm -r {} \; >> $PATH_LOG_FILE
   }
   fi
 
   #sqlloader bad file
-  find $PATH_LOG_DIR -name "hrs_person_back_up_$PRE_DATE.dat" >> $PATH_LOG_FILE
-  if [ 0 -lt $( find $PATH_LOG_DIR -name "hrs_person_back_up_$PRE_DATE.dat" | wc -l ) ] ; then {
-      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_LOG_DIR/hrs_person_back_up_$PRE_DATE.dat" >> $PATH_LOG_FILE
-      rm -rf $PATH_LOG_DIR/hrs_person_back_up_$PRE_DATE.dat
+  if [ 0 -lt $( find $PATH_LOG_DIR -maxdepth 1 -name "hrs_person_back_up_[0-9]*.dat" -ctime 7 | wc -l ) ] ; then {
+      echo "$(date +'%Y-%m-%d %H:%M:%S'): rm -rf $PATH_LOG_DIR/hrs_person_back_up_[0-9]*.dat" >> $PATH_LOG_FILE
+      find $PATH_LOG_DIR -maxdepth 1 -name "hrs_person_back_up_[0-9]*.dat" -ctime 7 -exec rm -r {} \; >> $PATH_LOG_FILE
   }
   fi
 }
