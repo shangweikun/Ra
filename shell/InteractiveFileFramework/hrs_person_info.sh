@@ -4,10 +4,10 @@ startParseFileSql (){
   echo "$(date +'%Y-%m-%d %H:%M:%S'): File start to parse [title: $TASK_TITLE, date: $DATE]" >> $PATH_LOG_FILE
   sqlplus -s "$DB_USERID" <<EOF
 set echo off feedback off heading off underline off;
-merge INTO EBDCNEW.DB_SHELL_TASK_INFO A
+merge INTO DB_SHELL_TASK_INFO A
 using (
     select nvl((select task_id
-                from EBDCNEW.DB_SHELL_TASK_INFO B
+                from DB_SHELL_TASK_INFO B
                 where B.TASK_TITLE = to_char('$TASK_TITLE')
                   and B.TASK_DATE = to_char('$DATE')
                ), 0) as TASK_ID
