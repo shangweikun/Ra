@@ -15,4 +15,8 @@ public class PersonCollector implements Collector<String, Person> {
 		return dao.selectById(id);
 	}
 
+	public static void main(String[] args) {
+		System.out.println(1);
+	}
+
 }
