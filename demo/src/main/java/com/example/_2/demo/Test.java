@@ -1,7 +1,7 @@
 package com.example._2.demo;
 
-import scala.collection.Traversable;
 import scala.collection.immutable.HashSet;
+import scala.collection.immutable.Traversable;
 
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
@@ -19,7 +19,7 @@ public class Test {
 
 	public static void test(){
 
-		Traversable<String> test = new HashSet<>();
+		Traversable<String> test = null;
 		System.out.println(Traversable.class.hashCode());
 	}
 }
