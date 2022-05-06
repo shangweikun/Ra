@@ -90,10 +90,4 @@ public class Solution {
                 brackets2.getBrackets() + "括号不匹配"
         );
     }
-
-    public static void main(String[] args) {
-        System.out.println(checkJavaFile(
-                new File("C:\\tmp\\Solution.java"))
-        );
-    }
 }

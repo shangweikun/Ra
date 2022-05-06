@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.PriorityQueue;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class LFUCache {
+public class LFUCache<K, E> implements Cache<K, E> {
 
     public LFUCache(int capacity) {
         this.size = capacity;
@@ -13,60 +13,60 @@ public class LFUCache {
                 0.85F);
     }
 
-    public Integer get(int key) {
+    public E get(K key) {
 
         if (size == 0) {
-            return -1;
+            return null;
         }
 
         if (map.containsKey(key)) {
-            Value value = map.get(key);
+            Value<K, E> value = map.get(key);
             queue.remove(value.key);
             value.key.useCount++;
             value.key.timeVersion = aLong.getAndAdd(1L);
             queue.add(value.key);
             return value.value;
         }
-        return -1;
+        return null;
     }
 
-    public void put(int key, int element) {
+    public void put(K key, E element) {
 
         if (size == 0) {
             return;
         }
 
         if (map.containsKey(key)) {
-            Value value = map.get(key);
+            Value<K, E> value = map.get(key);
             queue.remove(value.key);
             value.key.useCount++;
             value.key.timeVersion = aLong.getAndAdd(1L);
             queue.add(value.key);
-            map.put(key, new Value(value.key, element));
+            map.put(key, new Value<>(value.key, element));
         } else if (size <= map.size()) {
-            Key target = queue.poll();
+            Key<K> target = queue.poll();
             assert target != null;
             map.remove(target.key);
-            Key newKey = new Key(key);
+            Key<K> newKey = new Key<>(key);
             queue.add(newKey);
-            map.put(key, new Value(newKey, element));
+            map.put(key, new Value<>(newKey, element));
         } else {
-            Key newKey = new Key(key);
+            Key<K> newKey = new Key<>(key);
             queue.add(newKey);
-            map.put(key, new Value(newKey, element));
+            map.put(key, new Value<>(newKey, element));
         }
     }
 
     private final int size;
-    private final PriorityQueue<Key> queue = new PriorityQueue<>();
-    private final HashMap<Integer, Value> map;
+    private final PriorityQueue<Key<K>> queue = new PriorityQueue<>();
+    private final HashMap<K, Value<K, E>> map;
     private static final AtomicLong aLong = new AtomicLong();
 
-    private static class Value {
-        final Key key;
-        final Integer value;
+    private static class Value<K2, V2> {
+        final Key<K2> key;
+        final V2 value;
 
-        public Value(Key key, Integer value) {
+        public Value(Key<K2> key, V2 value) {
             this.key = key;
             this.value = value;
         }
@@ -80,13 +80,13 @@ public class LFUCache {
         }
     }
 
-    private static class Key implements Comparable<Key> {
+    private static class Key<K1> implements Comparable<Key<K1>> {
 
-        Integer key;
+        K1 key;
         int useCount = 1;
         long timeVersion = aLong.getAndAdd(1L);
 
-        public Key(Integer key) {
+        public Key(K1 key) {
             this.key = key;
         }
 

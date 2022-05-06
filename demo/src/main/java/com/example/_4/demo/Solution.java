@@ -1,13 +1,10 @@
 package com.example._4.demo;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Solution {
 
-    public final List<List<String>> result = new ArrayList<>();
+    public final List<int[]> result = new ArrayList<>();
 
     public final Set<Integer> horizontal = new HashSet<>();
 
@@ -15,55 +12,48 @@ public class Solution {
 
     public final Set<Integer> diagonal2 = new HashSet<>();
 
-    public int deepTotal;
+    public List<int[][]> solveNQueens(int n) {
+        int[] solution = new int[n];
+        Arrays.fill(solution, -1);
+        findSolution(solution, 0, n);
+        return transformerToRequire(result, n);
+    }
 
-    public List<List<String>> solveNQueens(int n) {
-        this.deepTotal = n;
-        ArrayList<String> strQ = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            this.horizontal.add(i);
-            this.diagonal1.add(-i);
-            this.diagonal2.add(i);
-            strQ.add(0, getQueueStringByHorizontal(i, this.deepTotal));
-            findSolution(strQ, 1);
-            strQ.remove(0);
-            this.horizontal.remove(i);
-            this.diagonal1.remove(-i);
-            this.diagonal2.remove(i);
+    private List<int[][]> transformerToRequire(List<int[]> todo, int n) {
+        List<int[][]> result = new ArrayList<>();
+        for (int[] tmp : todo) {
+            int[][] one = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                Arrays.fill(one[i], 0);
+                one[i][tmp[i]] = 1;
+            }
+            result.add(one);
         }
         return result;
     }
 
-    private void findSolution(ArrayList<String> strQ, int deep) {
+    private void findSolution(int[] result, int deep, int n) {
 
-        if (deep >= this.deepTotal) {
-            this.result.add(new ArrayList<>(strQ));
+        if (deep >= n) {
+            this.result.add(Arrays.copyOf(result, n));
             return;
         }
 
-        for (int i = 0; i < this.deepTotal; i++) {
+        for (int i = 0; i < n; i++) {
             if (isHasQueue(i, deep)) {
                 continue;
             }
             this.horizontal.add(i);
             this.diagonal1.add(deep - i);
             this.diagonal2.add(deep + i);
-            strQ.add(deep, getQueueStringByHorizontal(i, deepTotal));
-            findSolution(strQ, deep + 1);
-            strQ.remove(deep);
+            result[deep] = i;
+            findSolution(result, deep + 1, n);
+            result[deep] = -1;
             this.horizontal.remove(i);
             this.diagonal1.remove(deep - i);
             this.diagonal2.remove(deep + i);
         }
 
-    }
-
-    private String getQueueStringByHorizontal(int sit, int n) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < n; i++) {
-            sb.append(i == sit ? "Q" : ".");
-        }
-        return sb.toString();
     }
 
     private boolean isHasQueue(int i, int deep) {
