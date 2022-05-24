@@ -3,7 +3,6 @@ package com.example._7.demo.ready;
 import java.util.HashMap;
 
 public class LFUCache {
-
     private final int size;
     private final HashMap<Integer, Value> map;
     private final InnerLinkedList list;
