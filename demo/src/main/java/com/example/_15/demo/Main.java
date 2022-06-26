@@ -13,16 +13,15 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class Main {
 
-    private static final String DEFAULT_SWITCH_FILE_PATH = "/mnt/c/giteeSpace/20220626/switch.dat";
     private static final String DEFAULT_PATH = "/mnt/c/giteeSpace/20220626/";
     private static final Executor executor = Executors.newSingleThreadExecutor();
-
     private static final List<InfoHandle> handlers = new ArrayList<>();
 
     static {
@@ -32,7 +31,6 @@ public class Main {
     }
 
 
-    //todo 主线程负责执行命令；单一子线程负责格式化结果
     public static void main(String[] args) throws IOException, InterruptedException {
 
         CountDownLatch latch = new CountDownLatch(1);
@@ -46,13 +44,9 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-
         executor.execute(() -> {
 
             try {
-                String switchPath = args.length >= 2 ? args[1] : DEFAULT_SWITCH_FILE_PATH;
-
-                boolean loopSwitch;
 
                 latch.await();
 
@@ -63,20 +57,26 @@ public class Main {
                 BufferedReader reader = Files.newBufferedReader(
                         Paths.get(DEFAULT_PATH + fileName)
                 );
-
-                do {
+                String time = null;
+                ArrayList<String> cache = new ArrayList<>();
+                while (true) {
                     while (reader.ready()) {
 
                         String line = reader.readLine();
-                        Info info = new Info();
-
-                        //todo 按照时间拆分组
-                        //todo 按组提交
-                        handlers.forEach(handler -> handler.handle(info, List.of(line)));
+                        String temp = line.substring(0, 10);
+                        if (time == null) {
+                            time = temp;
+                        } else if (!Objects.equals(time, temp)) {
+                            time = temp;
+                            Info info = new Info();
+                            handlers.forEach(handler -> handler.handle(info, List.of(line)));
+                            System.out.println(info);
+                            cache.clear();
+                        }
+                        cache.add(line);
                     }
                     Thread.sleep(1000L);
-                    loopSwitch = Boolean.parseBoolean(Files.readAllLines(Paths.get(switchPath)).get(0));
-                } while (loopSwitch);
+                }
             } catch (IOException | InterruptedException e) {
                 throw new RuntimeException(e);
             }
