@@ -68,7 +68,7 @@ public class Manager {
 
 	@Override
 	public String toString() {
-		return "Manager{" +
+		return "ManagerVO{" +
 				"Id=" + Id +
 				", Name='" + Name + '\'' +
 				", ClassName='" + ClassName + '\'' +

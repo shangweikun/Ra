@@ -7,5 +7,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		PersonVO VO = PersonVOFactory.newInstance("712345");
+		System.out.println(VO);
 	}
 }

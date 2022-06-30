@@ -6,12 +6,13 @@ import com.example._15.demo.handlers.InfoHandle;
 import java.util.List;
 
 public class DateInfoHandle implements InfoHandle {
-    @Override
-    public String getColumnName() {
-        return "date";
-    }
+	@Override
+	public String getColumnName() {
+		return "all";
+	}
 
-    @Override
-    public void handle(Info info, List<String> input) {
-    }
+	@Override
+	public void handle(Info info, List<String> input) {
+		info.setAllConnect(input.size());
+	}
 }

@@ -13,5 +13,10 @@ public class StartInfo implements InfoHandle {
 
     @Override
     public void handle(Info info, List<String> input) {
+        info.setStartConnect(
+                input.parallelStream()
+                        .filter(s -> s.contains("[S]"))
+                        .count()
+        );
     }
 }
