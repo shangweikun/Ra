@@ -16,7 +16,6 @@ public class Main {
                     .setHandler(exchange -> {
                         exchange.getResponseHeaders().put(Headers.CONTENT_TYPE, "text/plain");
                         exchange.getResponseSender().send("Hello World");
-                        exchange.getResponseHeaders().put(new HttpString("count"), "1");
                     }).build();
             server.start();
         }
