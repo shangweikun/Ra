@@ -54,7 +54,7 @@ public class App2 {
         thread0.start();
         thread1.start();
 
-        while (thread0.isAlive() || thread1.isAlive()) ;
+        while (!b || thread0.isAlive() || thread1.isAlive()) ;
 
     }
 }
