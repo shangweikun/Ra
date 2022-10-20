@@ -210,23 +210,67 @@ public class Solution {
 
     static class Solution5 {
 
+        private Map<Integer, List<String>> note = new HashMap<>();
+
         public List<String> generateParenthesis(int n) {
             return doGenerate(n);
         }
 
         private List<String> doGenerate(int n) {
+
             if (n == 1) {
                 return List.of("()");
-            } else if (n == 2) {
-                return List.of("()","(())");
-            }else {
-                List<String> result = doGenerate(n - 1);
-                return result.parallelStream()
-                        .map(i -> List.of("(" + i + ")", "()" + i, i + "()"))
+            } else if (note.containsKey(n)) {
+                return note.get(n);
+            } else {
+
+                List<String> tmp = new ArrayList<>(doGenerate(n - 1)
+                        .stream()
+                        .map(str -> List.of("(" + str + ")", "()" + str, str + "()"))
                         .flatMap(List::stream)
                         .distinct()
+                        .toList());
+
+                for (int i = 2; i < n; i++) {
+                    List<String> left = doGenerate(i);
+                    List<String> right = doGenerate(n - i);
+                    tmp.addAll(mergeList(left, right));
+                }
+
+                List<String> result = tmp
+                        .stream()
+                        .distinct()
                         .toList();
+
+                note.put(n, result);
+                return result;
             }
+
+        }
+
+        private List<String> mergeList(List<String> left, List<String> right) {
+
+            return left.stream()
+                    .map(lStr -> right.stream().map(rStr -> lStr + rStr).toList())
+                    .flatMap(List::stream)
+                    .distinct()
+                    .toList();
+
+
+        }
+
+        private List<String> result = new ArrayList<>();
+
+        private void doGenerate0(String s, int n, int l, int r) {
+
+            if (n == l && n == r) {
+                result.add(s);
+            }
+
+            if (l > n || r > n || r > l) return;
+
+            doGenerate0(s + "(", n, l + 1, r);
+            doGenerate0(s + ")", n, l, r + 1);
 
         }
     }
