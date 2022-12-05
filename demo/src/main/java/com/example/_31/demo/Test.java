@@ -67,6 +67,7 @@ public class Test {
     class Switcher {
         Map<String, String> map = new HashMap<>();
 
+
         String replace(String input) {
             Map.Entry<String, String> entry = map.entrySet().parallelStream()
                     .filter(e -> Pattern.compile(e.getKey()).matcher(input).matches())
