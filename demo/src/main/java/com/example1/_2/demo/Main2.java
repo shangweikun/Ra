@@ -2,6 +2,7 @@ package com.example1._2.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main2 {
 
@@ -32,7 +33,7 @@ public class Main2 {
             public List<TreeNode> result(int[] arrays) {
                 return treeNodeWrappers.stream()
                         .map(t -> this.toRealTreeNode(t, arrays))
-                        .toList();
+                        .collect(Collectors.toList());
             }
 
             private TreeNode toRealTreeNode(TreeNode treeNodeWrapper,
