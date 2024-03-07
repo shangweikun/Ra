@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cebbank.ncbs.ap.dao.CapOlbServiceInLogBaseDAO">
+
+    <!-- result maps for database table capolb_ser_in_log_base -->
+    <resultMap id="RM-CAPOLBSERVICEINLOGBASE" type="com.cebbank.ncbs.ap.entity.CapOlbServiceInLogBaseDO">
+        <result property="recepSeqNo" column="Recep_Seq_No" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="tranDt" column="Tran_Dt" javaType="java.util.Date" jdbcType="DATE"/>
+        <result property="chanNo" column="Chan_No" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="startTm" column="Start_Tm" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="tranStartTm" column="Tran_Start_Tm" javaType="java.lang.Long" jdbcType="BIGINT"/>
+        <result property="interfSerNo" column="Interf_Ser_No" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- base column list for database table capolb_ser_in_log_base -->
+    <sql id="capolbserviceinlogbasebase_column_list">
+           Recep_Seq_No
+          ,Tran_Dt
+          ,Chan_No
+          ,Start_Tm
+          ,Tran_Start_Tm
+          ,Interf_Ser_No
+
+    </sql>
+
+
+    <select id="findByUniqueKeyCapolbServiceInLogBasePk1" resultMap="RM-CAPOLBSERVICEINLOGBASE">
+        SELECT
+        <include refid="capolbserviceinlogbasebase_column_list"/>
+        FROM capolb_ser_in_log_base
+        WHERE Tran_Dt = #{tranDt}
+        and Recep_Seq_No = #{recepSeqNo}
+    </select>
+
+    <!-- mapped statement for IbatisCapolbServiceInLogBaseDAO.insert -->
+    <insert id="insert">
+        INSERT INTO capolb_ser_in_log_base
+        (
+         Recep_Seq_No
+          ,Tran_Dt
+          ,Chan_No
+          ,Start_Tm
+          ,Tran_Start_Tm
+          ,Interf_Ser_No )
+        VALUES ( #{recepSeqNo}
+               , #{tranDt}
+               , #{chanNo}
+               , #{startTm}
+               , #{tranStartTm}
+               , #{interfSerNo}) sw
+    </insert>
+
+</mapper>

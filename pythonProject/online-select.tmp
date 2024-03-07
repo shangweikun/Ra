@@ -1,0 +1,1447 @@
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBBUSILOG" parameterType="com.cebbank.ncbs.ap.entity.CapOlbBusiLogDO">
+        SELECT
+        <include refid="capolbbusilogbase_column_list"/>
+                FROM capolb_busi_log
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="logSubNo!=null">
+                        and Log_SubNo = #{logSubNo}
+                    </if>
+                    <if test="dBPersistLaycompon!=null">
+                        and DB_Persist_Lay_compon = #{dBPersistLaycompon}
+                    </if>
+                    <if test="tabName!=null">
+                        and Tab_Name = #{tabName}
+                    </if>
+                    <if test="tabEntiCategRoute!=null">
+                        and Tab_Enti_Categ_Route = #{tabEntiCategRoute}
+                    </if>
+                    <if test="dBRecordInd!=null">
+                        and DB_Record_Ind = #{dBRecordInd}
+                    </if>
+                    <if test="oldData!=null">
+                        and Old_Data = #{oldData}
+                    </if>
+                    <if test="newData!=null">
+                        and New_Data = #{newData}
+                    </if>
+                    <if test="routVal!=null">
+                        and Rout_Val = #{routVal}
+                    </if>
+                    <if test="routType!=null">
+                        and Rout_Type = #{routType}
+                    </if>
+                    <if test="unitNo!=null">
+                        and Unit_No = #{unitNo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                    <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                    <if test="micSerName!=null">
+                        and Mic_Ser_Name = #{micSerName}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBBUSILOG">
+        SELECT
+        <include refid="capolbbusilogbase_column_list"/>
+                FROM capolb_busi_log
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Log_SubNo=#{logSubNo}
+    </select>
+
+
+
+
+
+select Name: findPageByKeyCapOlbBusiLogId1
+<select id="findPageByKeyCapOlbBusiLogId1" resultMap="RM-CAPOLBBUSILOG">
+        SELECT
+        <include refid="capolbbusilogbase_column_list"/>
+                FROM capolb_busi_log
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Record_Stat=#{recordStat}
+                order by Log_SubNo desc
+    </select>
+
+
+
+select Name: findPageCountByKeyCapOlbBusiLogId1
+<select id="findPageCountByKeyCapOlbBusiLogId1" resultType="java.lang.Long">
+            SELECT
+            count(1)
+                    FROM capolb_busi_log
+                    WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Record_Stat=#{recordStat}
+     </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBRVRSDETL" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="orgnalTranDt!=null">
+                        and Orgnal_Tran_Dt = #{orgnalTranDt}
+                    </if>
+                    <if test="orgnalTranSeqNo!=null">
+                        and Orgnal_Tran_Seq_No = #{orgnalTranSeqNo}
+                    </if>
+                    <if test="tranTell!=null">
+                        and Tran_Tell = #{tranTell}
+                    </if>
+                    <if test="notesInfo!=null">
+                        and Notes_Info = #{notesInfo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBRVRSDETL">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                WHERE Orgnal_Tran_Dt=#{orgnalTranDt} and Orgnal_Tran_Seq_No=#{orgnalTranSeqNo}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbRvrsDetlIdx1
+<select id="findByUniqueKeyCapOlbRvrsDetlIdx1" resultMap="RM-CAPOLBRVRSDETL">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbRvrsDetlIdx2
+<select id="findByUniqueKeyCapOlbRvrsDetlIdx2" resultMap="RM-CAPOLBRVRSDETL">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-CAPOLBSERVICEINLOG">
+        SELECT
+        <include refid="capolbserviceinlogbase_column_list"/>
+        FROM capolb_ser_in_log
+        WHERE Recep_Seq_No = #{recepSeqNo}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbServiceInLogIPrevention
+<select id="findByUniqueKeyCapOlbServiceInLogIPrevention" resultMap="RM-CAPOLBSERVICEINLOG">
+        SELECT  Exec_Stat
+        FROM capolb_ser_in_log
+        WHERE Recep_Seq_No = #{recepSeqNo}
+          and Tran_Dt = #{tranDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbServiceInLogIdempotent
+<select id="findByUniqueKeyCapOlbServiceInLogIdempotent" resultMap="RM-CAPOLBSERVICEINLOG">
+        SELECT Exec_Stat
+             , Resp_Mes_Rpt_1
+             , Resp_Mes_Rpt
+        FROM capolb_ser_in_log
+        WHERE Recep_Seq_No = #{recepSeqNo}
+          and Tran_Dt = #{tranDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapolbServiceInLogBasePk1
+<select id="findByUniqueKeyCapolbServiceInLogBasePk1" resultMap="RM-CAPOLBSERVICEINLOGBASE">
+        SELECT
+        <include refid="capolbserviceinlogbasebase_column_list"/>
+        FROM capolb_ser_in_log_base
+        WHERE Tran_Dt = #{tranDt}
+        and Recep_Seq_No = #{recepSeqNo}
+    </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBTXNLOG" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+        SELECT
+        <include refid="capolbtxnlogbase_column_list"/>
+                FROM capolb_txn_log
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="interfSerNo!=null">
+                        and Interf_Ser_No = #{interfSerNo}
+                    </if>
+                    <if test="chanNo!=null">
+                        and Chan_No = #{chanNo}
+                    </if>
+                    <if test="tranTell!=null">
+                        and Tran_Tell = #{tranTell}
+                    </if>
+                    <if test="tranInstNo!=null">
+                        and Tran_Inst_No = #{tranInstNo}
+                    </if>
+                    <if test="reveInd!=null">
+                        and Reve_Ind = #{reveInd}
+                    </if>
+                    <if test="reveDt!=null">
+                        and Reve_Dt = #{reveDt}
+                    </if>
+                    <if test="reveTell!=null">
+                        and Reve_Tell = #{reveTell}
+                    </if>
+                    <if test="reveInstNo!=null">
+                        and Reve_Inst_No = #{reveInstNo}
+                    </if>
+                    <if test="reveTranSeqNo!=null">
+                        and Reve_Tran_Seq_No = #{reveTranSeqNo}
+                    </if>
+                    <if test="recordChaType!=null">
+                        and Record_Cha_Type = #{recordChaType}
+                    </if>
+                    <if test="routVal!=null">
+                        and Rout_Val = #{routVal}
+                    </if>
+                    <if test="routType!=null">
+                        and Rout_Type = #{routType}
+                    </if>
+                    <if test="unitNo!=null">
+                        and Unit_No = #{unitNo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                    <if test="affType!=null">
+                        and Aff_Type = #{affType}
+                    </if>
+                    <if test="composTranInd!=null">
+                        and Compos_Tran_Ind = #{composTranInd}
+                    </if>
+                     <if test="bizPropInfo!=null">
+                        and Biz_Prop_Info = #{bizPropInfo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBTXNLOG">
+        SELECT
+        <include refid="capolbtxnlogbase_column_list"/>
+                FROM capolb_txn_log
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbTxnLogIdx1
+<select id="findByUniqueKeyCapOlbTxnLogIdx1" resultMap="RM-CAPOLBTXNLOG">
+        SELECT
+        <include refid="capolbtxnlogbase_column_list"/>
+                FROM capolb_txn_log
+                WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+    </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBTXNLOGRLVC" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+        SELECT
+                 <include refid="capolbtxnlogrlvcbase_column_list"/>
+                FROM capolb_txn_log_rlvc
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="interfSerNo!=null">
+                        and Interf_Ser_No = #{interfSerNo}
+                    </if>
+                    <if test="micSerName!=null">
+                        and Mic_Ser_Name = #{micSerName}
+                    </if>
+                    <if test="chanNo!=null">
+                        and Chan_No = #{chanNo}
+                    </if>
+                    <if test="tranTell!=null">
+                        and Tran_Tell = #{tranTell}
+                    </if>
+                    <if test="tranInstNo!=null">
+                        and Tran_Inst_No = #{tranInstNo}
+                    </if>
+                    <if test="reveInd!=null">
+                        and Reve_Ind = #{reveInd}
+                    </if>
+                    <if test="affType!=null">
+                        and Aff_Type = #{affType}
+                    </if>
+                    <if test="recordChaType!=null">
+                        and Record_Cha_Type = #{recordChaType}
+                    </if>
+                    <if test="routVal!=null">
+                        and Rout_Val = #{routVal}
+                    </if>
+                    <if test="routType!=null">
+                        and Rout_Type = #{routType}
+                    </if>
+                    <if test="unitNo!=null">
+                        and Unit_No = #{unitNo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                    <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                    <if test="composTranInd!=null">
+                        and Compos_Tran_Ind = #{composTranInd}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBTXNLOGRLVC">
+        SELECT
+        <include refid="capolbtxnlogrlvcbase_column_list"/>
+                FROM capolb_txn_log_rlvc
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+    </select>
+
+
+
+select Name: findByResponseNo
+<select id="findByResponseNo" resultMap="RM-CAPOLBTXNLOGRLVC">
+        SELECT
+        <include refid="capolbtxnlogrlvcbase_column_list"/>
+        FROM capolb_txn_log_rlvc
+        WHERE Resp_Seq_No=#{respSeqNo}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbTxnLogRlvcIdx1
+<select id="findByUniqueKeyCapOlbTxnLogRlvcIdx1" resultMap="RM-CAPOLBTXNLOGRLVC">
+        SELECT
+        <include refid="capolbtxnlogrlvcbase_column_list"/>
+                FROM capolb_txn_log_rlvc
+                WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+    </select>
+
+
+
+select Name: findExtErrorCode
+<select id="findExtErrorCode" resultMap="RM-CAPOLPERRCODE" parameterType="com.cebbank.ncbs.ap.entity.CapOlpErrCodeDO">
+        SELECT
+        Pk_Id
+        ,Inte_Err_Cd
+        ,Inte_Err_Dtl_Descb
+        ,Exter_Err_Cd
+        ,Exter_Err_Type
+        ,Exter_Err_Cd_Descb
+        FROM capolp_err_code_cmprs
+        <where>
+            <if test="inteErrCd!=null">
+                and Inte_Err_Cd = #{inteErrCd}
+            </if>
+        </where>
+    </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLPRVRSCTRL" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+        SELECT
+                  <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                <where>
+                    <if test="pkId!=null">
+                        and Pk_Id = #{pkId}
+                    </if>
+                    <if test="reveLevl!=null">
+                        and Reve_Levl = #{reveLevl}
+                    </if>
+                    <if test="dBTabName!=null">
+                        and DB_Tab_Name = #{dBTabName}
+                    </if>
+                    <if test="billDtlTabInd!=null">
+                        and Bill_Dtl_Tab_Ind = #{billDtlTabInd}
+                    </if>
+                    <if test="tabRecordDelReseInd!=null">
+                        and Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd}
+                    </if>
+                    <if test="fieName!=null">
+                        and Fie_Name = #{fieName}
+                    </if>
+                    <if test="reveRelInd!=null">
+                        and Reve_Rel_Ind = #{reveRelInd}
+                    </if>
+                    <if test="reveFieUpdManr!=null">
+                        and Reve_Fie_Upd_Manr = #{reveFieUpdManr}
+                    </if>
+                    <if test="fieVarValAdjusInd!=null">
+                        and Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd}
+                    </if>
+                    <if test="varValCoveredManr!=null">
+                        and Var_Val_Covered_Manr = #{varValCoveredManr}
+                    </if>
+                    <if test="speValReveInd!=null">
+                        and Spe_Val_Reve_Ind = #{speValReveInd}
+                    </if>
+                    <if test="speValReveList!=null">
+                        and Spe_Val_Reve_List = #{speValReveList}
+                    </if>
+                    <if test="reveRealCateg!=null">
+                        and Reve_Real_Categ = #{reveRealCateg}
+                    </if>
+                    <if test="revePrevRealCateg!=null">
+                        and Reve_Prev_Real_Categ = #{revePrevRealCateg}
+                    </if>
+                    <if test="aftReveRealCateg!=null">
+                        and Aft_Reve_Real_Categ = #{aftReveRealCateg}
+                    </if>
+                    <if test="dtlReveRealCateg!=null">
+                        and Dtl_Reve_Real_Categ = #{dtlReveRealCateg}
+                    </if>
+                    <if test="reveRollBackInd!=null">
+                        and Reve_Roll_Back_Ind = #{reveRollBackInd}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                WHERE Pk_Id=#{pkId}
+    </select>
+
+
+
+select Name: findByUniqueKeyEappRvrsCtrl
+<select id="findByUniqueKeyEappRvrsCtrl" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Fie_Name=#{fieName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+    </select>
+
+
+
+select Name: findPageByKeyKappRvrsCtrlIdx1
+<select id="findPageByKeyKappRvrsCtrlIdx1" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+                order by Pk_Id asc limit #{start},#{num}
+    </select>
+
+
+
+select Name: findKappRvrsCtrlByRvrAndTname
+<select id="findKappRvrsCtrlByRvrAndTname" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+        FROM capolp_rvrs_ctrl
+        WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name =#{dBTabName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+    </select>
+
+
+
+select Name: findPageCountByKeyKappRvrsCtrlIdx1
+<select id="findPageCountByKeyKappRvrsCtrlIdx1" resultType="java.lang.Long">
+            SELECT
+            count(1)
+                    FROM capolp_rvrs_ctrl
+                    WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+     </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLPRVRSEXPT" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsExptDO">
+        SELECT
+            <include refid="capolprvrsexptbase_column_list"/>
+                FROM capolp_rvrs_expt
+                <where>
+                    <if test="dBTabName!=null">
+                        and DB_Tab_Name = #{dBTabName}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLPRVRSEXPT">
+        SELECT
+        <include refid="capolprvrsexptbase_column_list"/>
+                FROM capolp_rvrs_expt
+                WHERE DB_Tab_Name=#{dBTabName}
+    </select>
+
+
+
+
+select Name: selectTransByServiceCode
+<select id="selectTransByServiceCode" resultMap="RM-TRANSCONFIG">
+        SELECT
+        <include refid="capolp_trans_config_list"/>
+        from capolp_trans_config
+        where Interf_Ser_No = #{interfSerNo}
+    </select>
+
+
+select Name: selectDateSwitchBatchStatus
+<select id="selectDateSwitchBatchStatus" parameterType="java.lang.String" resultType="com.cebbank.ncbs.ap.entity.ApDealCtrlDo">
+        select id, flag from eapp_bath_status;
+    </select>
+
+
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBBUSILOG" parameterType="com.cebbank.ncbs.ap.entity.CapOlbBusiLogDO">
+        SELECT
+        <include refid="capolbbusilogbase_column_list"/>
+                FROM capolb_busi_log
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="logSubNo!=null">
+                        and Log_SubNo = #{logSubNo}
+                    </if>
+                    <if test="dBPersistLaycompon!=null">
+                        and DB_Persist_Lay_compon = #{dBPersistLaycompon}
+                    </if>
+                    <if test="tabName!=null">
+                        and Tab_Name = #{tabName}
+                    </if>
+                    <if test="tabEntiCategRoute!=null">
+                        and Tab_Enti_Categ_Route = #{tabEntiCategRoute}
+                    </if>
+                    <if test="dBRecordInd!=null">
+                        and DB_Record_Ind = #{dBRecordInd}
+                    </if>
+                    <if test="oldData!=null">
+                        and Old_Data = #{oldData}
+                    </if>
+                    <if test="newData!=null">
+                        and New_Data = #{newData}
+                    </if>
+                    <if test="routVal!=null">
+                        and Rout_Val = #{routVal}
+                    </if>
+                    <if test="routType!=null">
+                        and Rout_Type = #{routType}
+                    </if>
+                    <if test="unitNo!=null">
+                        and Unit_No = #{unitNo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                    <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                    <if test="micSerName!=null">
+                        and Mic_Ser_Name = #{micSerName}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBBUSILOG">
+        SELECT
+        <include refid="capolbbusilogbase_column_list"/>
+                FROM capolb_busi_log
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Log_SubNo=#{logSubNo}
+    </select>
+
+
+
+
+
+select Name: findPageByKeyCapOlbBusiLogId1
+<select id="findPageByKeyCapOlbBusiLogId1" resultMap="RM-CAPOLBBUSILOG">
+        SELECT
+        <include refid="capolbbusilogbase_column_list"/>
+                FROM capolb_busi_log
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Record_Stat=#{recordStat}
+                order by Log_SubNo desc
+    </select>
+
+
+
+select Name: findPageCountByKeyCapOlbBusiLogId1
+<select id="findPageCountByKeyCapOlbBusiLogId1" resultType="java.lang.Long">
+            SELECT
+            count(1)
+                    FROM capolb_busi_log
+                    WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Record_Stat=#{recordStat}
+     </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBRVRSDETL" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="orgnalTranDt!=null">
+                        and Orgnal_Tran_Dt = #{orgnalTranDt}
+                    </if>
+                    <if test="orgnalTranSeqNo!=null">
+                        and Orgnal_Tran_Seq_No = #{orgnalTranSeqNo}
+                    </if>
+                    <if test="tranTell!=null">
+                        and Tran_Tell = #{tranTell}
+                    </if>
+                    <if test="notesInfo!=null">
+                        and Notes_Info = #{notesInfo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBRVRSDETL">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                WHERE Orgnal_Tran_Dt=#{orgnalTranDt} and Orgnal_Tran_Seq_No=#{orgnalTranSeqNo}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbRvrsDetlIdx1
+<select id="findByUniqueKeyCapOlbRvrsDetlIdx1" resultMap="RM-CAPOLBRVRSDETL">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbRvrsDetlIdx2
+<select id="findByUniqueKeyCapOlbRvrsDetlIdx2" resultMap="RM-CAPOLBRVRSDETL">
+        SELECT
+        <include refid="capolbrvrsdetlbase_column_list"/>
+                FROM capolb_rvrs_detl
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-CAPOLBSERVICEINLOG">
+        SELECT
+        <include refid="capolbserviceinlogbase_column_list"/>
+        FROM capolb_ser_in_log
+        WHERE Recep_Seq_No = #{recepSeqNo}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbServiceInLogIPrevention
+<select id="findByUniqueKeyCapOlbServiceInLogIPrevention" resultMap="RM-CAPOLBSERVICEINLOG">
+        SELECT  Exec_Stat
+        FROM capolb_ser_in_log
+        WHERE Recep_Seq_No = #{recepSeqNo}
+          and Tran_Dt = #{tranDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbServiceInLogIdempotent
+<select id="findByUniqueKeyCapOlbServiceInLogIdempotent" resultMap="RM-CAPOLBSERVICEINLOG">
+        SELECT Exec_Stat
+             , Resp_Mes_Rpt_1
+             , Resp_Mes_Rpt
+        FROM capolb_ser_in_log
+        WHERE Recep_Seq_No = #{recepSeqNo}
+          and Tran_Dt = #{tranDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapolbServiceInLogBasePk1
+<select id="findByUniqueKeyCapolbServiceInLogBasePk1" resultMap="RM-CAPOLBSERVICEINLOGBASE">
+        SELECT
+        <include refid="capolbserviceinlogbasebase_column_list"/>
+        FROM capolb_ser_in_log_base
+        WHERE Tran_Dt = #{tranDt}
+        and Recep_Seq_No = #{recepSeqNo}
+    </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBTXNLOG" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+        SELECT
+        <include refid="capolbtxnlogbase_column_list"/>
+                FROM capolb_txn_log
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="interfSerNo!=null">
+                        and Interf_Ser_No = #{interfSerNo}
+                    </if>
+                    <if test="chanNo!=null">
+                        and Chan_No = #{chanNo}
+                    </if>
+                    <if test="tranTell!=null">
+                        and Tran_Tell = #{tranTell}
+                    </if>
+                    <if test="tranInstNo!=null">
+                        and Tran_Inst_No = #{tranInstNo}
+                    </if>
+                    <if test="reveInd!=null">
+                        and Reve_Ind = #{reveInd}
+                    </if>
+                    <if test="reveDt!=null">
+                        and Reve_Dt = #{reveDt}
+                    </if>
+                    <if test="reveTell!=null">
+                        and Reve_Tell = #{reveTell}
+                    </if>
+                    <if test="reveInstNo!=null">
+                        and Reve_Inst_No = #{reveInstNo}
+                    </if>
+                    <if test="reveTranSeqNo!=null">
+                        and Reve_Tran_Seq_No = #{reveTranSeqNo}
+                    </if>
+                    <if test="recordChaType!=null">
+                        and Record_Cha_Type = #{recordChaType}
+                    </if>
+                    <if test="routVal!=null">
+                        and Rout_Val = #{routVal}
+                    </if>
+                    <if test="routType!=null">
+                        and Rout_Type = #{routType}
+                    </if>
+                    <if test="unitNo!=null">
+                        and Unit_No = #{unitNo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                    <if test="affType!=null">
+                        and Aff_Type = #{affType}
+                    </if>
+                    <if test="composTranInd!=null">
+                        and Compos_Tran_Ind = #{composTranInd}
+                    </if>
+                     <if test="bizPropInfo!=null">
+                        and Biz_Prop_Info = #{bizPropInfo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBTXNLOG">
+        SELECT
+        <include refid="capolbtxnlogbase_column_list"/>
+                FROM capolb_txn_log
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbTxnLogIdx1
+<select id="findByUniqueKeyCapOlbTxnLogIdx1" resultMap="RM-CAPOLBTXNLOG">
+        SELECT
+        <include refid="capolbtxnlogbase_column_list"/>
+                FROM capolb_txn_log
+                WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+    </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLBTXNLOGRLVC" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+        SELECT
+                 <include refid="capolbtxnlogrlvcbase_column_list"/>
+                FROM capolb_txn_log_rlvc
+                <where>
+                    <if test="respSeqNo!=null">
+                        and Resp_Seq_No = #{respSeqNo}
+                    </if>
+                    <if test="tranDt!=null">
+                        and Tran_Dt = #{tranDt}
+                    </if>
+                    <if test="recepSeqNo!=null">
+                        and Recep_Seq_No = #{recepSeqNo}
+                    </if>
+                    <if test="requDt!=null">
+                        and Requ_Dt = #{requDt}
+                    </if>
+                    <if test="interfSerNo!=null">
+                        and Interf_Ser_No = #{interfSerNo}
+                    </if>
+                    <if test="micSerName!=null">
+                        and Mic_Ser_Name = #{micSerName}
+                    </if>
+                    <if test="chanNo!=null">
+                        and Chan_No = #{chanNo}
+                    </if>
+                    <if test="tranTell!=null">
+                        and Tran_Tell = #{tranTell}
+                    </if>
+                    <if test="tranInstNo!=null">
+                        and Tran_Inst_No = #{tranInstNo}
+                    </if>
+                    <if test="reveInd!=null">
+                        and Reve_Ind = #{reveInd}
+                    </if>
+                    <if test="affType!=null">
+                        and Aff_Type = #{affType}
+                    </if>
+                    <if test="recordChaType!=null">
+                        and Record_Cha_Type = #{recordChaType}
+                    </if>
+                    <if test="routVal!=null">
+                        and Rout_Val = #{routVal}
+                    </if>
+                    <if test="routType!=null">
+                        and Rout_Type = #{routType}
+                    </if>
+                    <if test="unitNo!=null">
+                        and Unit_No = #{unitNo}
+                    </if>
+                    <if test="shardKey!=null">
+                        and Shard_Key = #{shardKey}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                    <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                    <if test="composTranInd!=null">
+                        and Compos_Tran_Ind = #{composTranInd}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLBTXNLOGRLVC">
+        SELECT
+        <include refid="capolbtxnlogrlvcbase_column_list"/>
+                FROM capolb_txn_log_rlvc
+                WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+    </select>
+
+
+
+select Name: findByResponseNo
+<select id="findByResponseNo" resultMap="RM-CAPOLBTXNLOGRLVC">
+        SELECT
+        <include refid="capolbtxnlogrlvcbase_column_list"/>
+        FROM capolb_txn_log_rlvc
+        WHERE Resp_Seq_No=#{respSeqNo}
+    </select>
+
+
+
+select Name: findByUniqueKeyCapOlbTxnLogRlvcIdx1
+<select id="findByUniqueKeyCapOlbTxnLogRlvcIdx1" resultMap="RM-CAPOLBTXNLOGRLVC">
+        SELECT
+        <include refid="capolbtxnlogrlvcbase_column_list"/>
+                FROM capolb_txn_log_rlvc
+                WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+    </select>
+
+
+
+select Name: findExtErrorCode
+<select id="findExtErrorCode" resultMap="RM-CAPOLPERRCODE" parameterType="com.cebbank.ncbs.ap.entity.CapOlpErrCodeDO">
+        SELECT
+        Pk_Id
+        ,Inte_Err_Cd
+        ,Inte_Err_Dtl_Descb
+        ,Exter_Err_Cd
+        ,Exter_Err_Type
+        ,Exter_Err_Cd_Descb
+        FROM capolp_err_code_cmprs
+        <where>
+            <if test="inteErrCd!=null">
+                and Inte_Err_Cd = #{inteErrCd}
+            </if>
+        </where>
+    </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLPRVRSCTRL" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+        SELECT
+                  <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                <where>
+                    <if test="pkId!=null">
+                        and Pk_Id = #{pkId}
+                    </if>
+                    <if test="reveLevl!=null">
+                        and Reve_Levl = #{reveLevl}
+                    </if>
+                    <if test="dBTabName!=null">
+                        and DB_Tab_Name = #{dBTabName}
+                    </if>
+                    <if test="billDtlTabInd!=null">
+                        and Bill_Dtl_Tab_Ind = #{billDtlTabInd}
+                    </if>
+                    <if test="tabRecordDelReseInd!=null">
+                        and Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd}
+                    </if>
+                    <if test="fieName!=null">
+                        and Fie_Name = #{fieName}
+                    </if>
+                    <if test="reveRelInd!=null">
+                        and Reve_Rel_Ind = #{reveRelInd}
+                    </if>
+                    <if test="reveFieUpdManr!=null">
+                        and Reve_Fie_Upd_Manr = #{reveFieUpdManr}
+                    </if>
+                    <if test="fieVarValAdjusInd!=null">
+                        and Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd}
+                    </if>
+                    <if test="varValCoveredManr!=null">
+                        and Var_Val_Covered_Manr = #{varValCoveredManr}
+                    </if>
+                    <if test="speValReveInd!=null">
+                        and Spe_Val_Reve_Ind = #{speValReveInd}
+                    </if>
+                    <if test="speValReveList!=null">
+                        and Spe_Val_Reve_List = #{speValReveList}
+                    </if>
+                    <if test="reveRealCateg!=null">
+                        and Reve_Real_Categ = #{reveRealCateg}
+                    </if>
+                    <if test="revePrevRealCateg!=null">
+                        and Reve_Prev_Real_Categ = #{revePrevRealCateg}
+                    </if>
+                    <if test="aftReveRealCateg!=null">
+                        and Aft_Reve_Real_Categ = #{aftReveRealCateg}
+                    </if>
+                    <if test="dtlReveRealCateg!=null">
+                        and Dtl_Reve_Real_Categ = #{dtlReveRealCateg}
+                    </if>
+                    <if test="reveRollBackInd!=null">
+                        and Reve_Roll_Back_Ind = #{reveRollBackInd}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                WHERE Pk_Id=#{pkId}
+    </select>
+
+
+
+select Name: findByUniqueKeyEappRvrsCtrl
+<select id="findByUniqueKeyEappRvrsCtrl" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Fie_Name=#{fieName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+    </select>
+
+
+
+select Name: findPageByKeyKappRvrsCtrlIdx1
+<select id="findPageByKeyKappRvrsCtrlIdx1" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+                FROM capolp_rvrs_ctrl
+                WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+                order by Pk_Id asc limit #{start},#{num}
+    </select>
+
+
+
+select Name: findKappRvrsCtrlByRvrAndTname
+<select id="findKappRvrsCtrlByRvrAndTname" resultMap="RM-CAPOLPRVRSCTRL">
+        SELECT
+        <include refid="capolprvrsctrlbase_column_list"/>
+        FROM capolp_rvrs_ctrl
+        WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name =#{dBTabName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+    </select>
+
+
+
+select Name: findPageCountByKeyKappRvrsCtrlIdx1
+<select id="findPageCountByKeyKappRvrsCtrlIdx1" resultType="java.lang.Long">
+            SELECT
+            count(1)
+                    FROM capolp_rvrs_ctrl
+                    WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+     </select>
+
+
+
+select Name: findList
+<select id="findList" resultMap="RM-CAPOLPRVRSEXPT" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsExptDO">
+        SELECT
+            <include refid="capolprvrsexptbase_column_list"/>
+                FROM capolp_rvrs_expt
+                <where>
+                    <if test="dBTabName!=null">
+                        and DB_Tab_Name = #{dBTabName}
+                    </if>
+                    <if test="lPCd!=null">
+                        and LP_Cd = #{lPCd}
+                    </if>
+                    <if test="mainteTell!=null">
+                        and Mainte_Tell = #{mainteTell}
+                    </if>
+                    <if test="mainteInst!=null">
+                        and Mainte_Inst = #{mainteInst}
+                    </if>
+                    <if test="mainteDt!=null">
+                        and Mainte_Dt = #{mainteDt}
+                    </if>
+                    <if test="mainteTm!=null">
+                        and Mainte_Tm = #{mainteTm}
+                    </if>
+                    <if test="recordStat!=null">
+                        and Record_Stat = #{recordStat}
+                    </if>
+                    <if test="overaSitAffStat!=null">
+                        and Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                    </if>
+                    <if test="overaSitAffSeqNo!=null">
+                        and Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                    </if>
+                     <if test="optimLockVersNo!=null">
+                        and Optim_Lock_Vers_No = #{optimLockVersNo}
+                    </if>
+                </where>
+    </select>
+
+
+
+select Name: findByPrimaryKey
+<select id="findByPrimaryKey" resultMap="RM-CAPOLPRVRSEXPT">
+        SELECT
+        <include refid="capolprvrsexptbase_column_list"/>
+                FROM capolp_rvrs_expt
+                WHERE DB_Tab_Name=#{dBTabName}
+    </select>
+
+
+
+
+select Name: selectTransByServiceCode
+<select id="selectTransByServiceCode" resultMap="RM-TRANSCONFIG">
+        SELECT
+        <include refid="capolp_trans_config_list"/>
+        from capolp_trans_config
+        where Interf_Ser_No = #{interfSerNo}
+    </select>
+
+
+select Name: selectDateSwitchBatchStatus
+<select id="selectDateSwitchBatchStatus" parameterType="java.lang.String" resultType="com.cebbank.ncbs.ap.entity.ApDealCtrlDo">
+        select id, flag from eapp_bath_status;
+    </select>

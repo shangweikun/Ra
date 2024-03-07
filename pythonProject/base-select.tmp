@@ -1,0 +1,610 @@
+select Name: unLockSelectOne
+<select id="unLockSelectOne" resultType="java.lang.String">
+        select
+        last_re_time
+        from capbcp_sms_name_id
+        where 1=1
+    </select>
+
+
+
+select Name: lockSelectOne
+<select id="lockSelectOne" resultType="java.lang.String">
+        select
+        last_re_time
+        from capbcp_sms_name_id
+        where 1=1
+        for update
+    </select>
+
+
+
+select Name: queryOnlineBatchTaskByBatchNo
+<select id="queryOnlineBatchTaskByBatchNo" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        <include refid="capbcbolbctskbase_column_list"/>
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+        </where>
+    </select>
+
+
+
+select Name: queryOnlineBatchTaskStateByBatchNo
+<select id="queryOnlineBatchTaskStateByBatchNo" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        Record_Stat
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+        </where>
+    </select>
+
+
+
+select Name: queryOnlineBatchTaskByFileOrgDate
+<select id="queryOnlineBatchTaskByFileOrgDate" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        <include refid="capbcbolbctskbase_column_list"/>
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Proc_File_Name = #{batProcFileName, jdbcType=VARCHAR}
+            AND Inst_No = #{instNo, jdbcType=VARCHAR}
+            AND Tran_Dt = #{tranDt, jdbcType=DATE}
+        </where>
+    </select>
+
+
+
+select Name: queryOnlineBatchTask
+<select id="queryOnlineBatchTask" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        <include refid="capbcbolbctskbase_column_list"/>
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Task_Retry_Tms &lt;= #{batTaskRetryTms, jdbcType=INTEGER}
+            AND Record_Stat = #{recordStat, jdbcType=VARCHAR}
+        </where>
+        order by Task_Prio asc,  Task_Comm_Tm asc
+        LIMIT #{limit}
+    </select>
+
+
+select Name: selectByPrimaryKey
+<select id="selectByPrimaryKey" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info
+        where Bat_Task_Bat_No = #{batNo}
+    </select>
+
+
+select Name: selectByCapbcbFileInfoIdx1
+<select id="selectByCapbcbFileInfoIdx1" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info
+        where Tran_Dt = #{tranDt}
+        and File_Descb = #{fileDescb}
+        and Src_File_Route = #{srcFileRoute}
+    </select>
+
+
+
+select Name: selectByPrimaryKey
+<select id="selectByPrimaryKey" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info_sub
+        where Sub_Bat_No = #{subBatNo}
+    </select>
+
+
+select Name: selectByapbcbFileInfoSubIdx1
+<select id="selectByapbcbFileInfoSubIdx1" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info_sub
+        where Bat_Task_Bat_No = #{batNo}
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-KAPPTXNSYSDT">
+        select
+        LP_Cd,
+        Last_Last_Tm_Tran_Dt,
+        Last_Tm_Tradi_Dt,
+        Tran_Dt,
+        Next_Tran_Dt,
+        Based_Next_Tran_Dt,
+        End_Of_The_Year_Final_Acct_Dt,
+        Record_Stat
+        from capbcp_acctg_sys_dt
+        where 1=1
+        <if test="recordStat != null">
+            and Record_Stat=#{recordStat}
+        </if>
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-KAPPBTCHEXECCTRL">
+        select
+        lgl_pern_code,
+        sys_id_num,
+        btch_ctrl_id,
+        btch_ctrl_val,
+        dsc_info
+        from capbcp_btch_exec_ctrl
+        where 1=1
+        <if test="sysIdNum != null">
+            and sys_id_num=#{sysIdNum}
+        </if>
+        <if test="btchCtrlId != null">
+            and btch_ctrl_id=#{btchCtrlId}
+        </if>
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-KAPPTXNSYSDT">
+        select
+        <include refid="baseResult"/>
+        from capbcp_txn_sys_dt
+    </select>
+
+
+
+
+select Name: selSysDt
+<select id="selSysDt" resultMap="RM-KAPPTXNSYSDT">
+        select
+        <include refid="baseResult"/>
+        from capbcp_txn_sys_dt
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-CapOlpCodeRule" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleDO">
+        select
+        Pk_Id,
+        Enc_Rule_Cre_Cd,
+        Enc_Rule_Cre_Cd_Descb,
+        Enc_Len,
+        Bel_Modu,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No
+        from capolp_code_rule
+        <where>
+            Enc_Rule_Cre_Cd = #{encRuleCreCd}
+            <if test="lPCd != null">
+                and LP_Cd = #{lPCd}
+            </if>
+        </where>
+    </select>
+
+
+select Name: findListByLegalPersonCode
+<select id="findListByLegalPersonCode" resultMap="RM-CapOlpCodeRule" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleDO">
+        select
+        Pk_Id,
+        Enc_Rule_Cre_Cd,
+        Enc_Rule_Cre_Cd_Descb,
+        Enc_Len,
+        Bel_Modu,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No
+        from capolp_code_rule
+        <where>
+            <if test="lPCd!=null">
+                LP_Cd = #{lPCd}
+            </if>
+        </where>
+        <if test="start != null and number != null">
+            limit #{start},#{number}
+        </if>
+    </select>
+
+
+
+select Name: findListByPrimaryKey
+<select id="findListByPrimaryKey" resultMap="RM-CapOlpCodeRuleCpstn" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleCpstnDO">
+        select
+        Pk_Id,
+        Enc_Rule_Cre_Cd,
+        Sequ_No,
+        Ass_Enc_Rule_Min_Unit,
+        Enc_Ass_Chn_Descb,
+        Ass_Len,
+        Cut_Out_Manr,
+        Covrg_Val,
+        Covrg_Manr,
+        Spe_Proce_Ind,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No,
+        Seri_No_Reset_Cyc,
+        Tech_Plat_Sequ_Tab_Pk
+        from capolp_code_rule_cpstn
+        where
+            Enc_Rule_Cre_Cd = #{encRuleCreCd}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </select>
+
+
+select Name: selectForUpdWithCatg
+<select id="selectForUpdWithCatg" resultMap="RM-ApSerlNum" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpSerlNumDO">
+        select
+        Seri_No,
+        Enc_Rule_Cre_Cd,
+        Seri_No_Reset_Cyc,
+        Seri_No_Categ,
+        Last_Tm_Tradi_Dt,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No
+        from capolp_serl_num
+        where Seri_No_Categ = #{seriNoCateg}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+        for update
+    </select>
+
+
+
+select Name: selectNumWithCatg
+<select id="selectNumWithCatg" resultType="java.lang.Long">
+        select Seri_No
+        from capolp_serl_num
+        where Seri_No_Categ = #{seriNoCateg}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </select>
+
+
+select Name: getPriKeyByTableName
+<select id="getPriKeyByTableName" resultType="java.lang.String" parameterType="java.lang.String">
+        select COLUMN_NAME from information_schema.columns where table_schema = (select database()) and table_name = #{tableName} and column_key = 'PRI' order by ORDINAL_POSITION
+    </select>
+
+
+select Name: unLockSelectOne
+<select id="unLockSelectOne" resultType="java.lang.String">
+        select
+        last_re_time
+        from capbcp_sms_name_id
+        where 1=1
+    </select>
+
+
+
+select Name: lockSelectOne
+<select id="lockSelectOne" resultType="java.lang.String">
+        select
+        last_re_time
+        from capbcp_sms_name_id
+        where 1=1
+        for update
+    </select>
+
+
+
+select Name: queryOnlineBatchTaskByBatchNo
+<select id="queryOnlineBatchTaskByBatchNo" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        <include refid="capbcbolbctskbase_column_list"/>
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+        </where>
+    </select>
+
+
+
+select Name: queryOnlineBatchTaskStateByBatchNo
+<select id="queryOnlineBatchTaskStateByBatchNo" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        Record_Stat
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+        </where>
+    </select>
+
+
+
+select Name: queryOnlineBatchTaskByFileOrgDate
+<select id="queryOnlineBatchTaskByFileOrgDate" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        <include refid="capbcbolbctskbase_column_list"/>
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Proc_File_Name = #{batProcFileName, jdbcType=VARCHAR}
+            AND Inst_No = #{instNo, jdbcType=VARCHAR}
+            AND Tran_Dt = #{tranDt, jdbcType=DATE}
+        </where>
+    </select>
+
+
+
+select Name: queryOnlineBatchTask
+<select id="queryOnlineBatchTask" resultMap="RM-CAPBCBOLBCTSK">
+        SELECT
+        <include refid="capbcbolbctskbase_column_list"/>
+        FROM capbcb_olbctsk
+        <where>
+            Bat_Task_Retry_Tms &lt;= #{batTaskRetryTms, jdbcType=INTEGER}
+            AND Record_Stat = #{recordStat, jdbcType=VARCHAR}
+        </where>
+        order by Task_Prio asc,  Task_Comm_Tm asc
+        LIMIT #{limit}
+    </select>
+
+
+select Name: selectByPrimaryKey
+<select id="selectByPrimaryKey" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info
+        where Bat_Task_Bat_No = #{batNo}
+    </select>
+
+
+select Name: selectByCapbcbFileInfoIdx1
+<select id="selectByCapbcbFileInfoIdx1" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info
+        where Tran_Dt = #{tranDt}
+        and File_Descb = #{fileDescb}
+        and Src_File_Route = #{srcFileRoute}
+    </select>
+
+
+
+select Name: selectByPrimaryKey
+<select id="selectByPrimaryKey" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info_sub
+        where Sub_Bat_No = #{subBatNo}
+    </select>
+
+
+select Name: selectByapbcbFileInfoSubIdx1
+<select id="selectByapbcbFileInfoSubIdx1" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from capbcb_file_info_sub
+        where Bat_Task_Bat_No = #{batNo}
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-KAPPTXNSYSDT">
+        select
+        LP_Cd,
+        Last_Last_Tm_Tran_Dt,
+        Last_Tm_Tradi_Dt,
+        Tran_Dt,
+        Next_Tran_Dt,
+        Based_Next_Tran_Dt,
+        End_Of_The_Year_Final_Acct_Dt,
+        Record_Stat
+        from capbcp_acctg_sys_dt
+        where 1=1
+        <if test="recordStat != null">
+            and Record_Stat=#{recordStat}
+        </if>
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-KAPPBTCHEXECCTRL">
+        select
+        lgl_pern_code,
+        sys_id_num,
+        btch_ctrl_id,
+        btch_ctrl_val,
+        dsc_info
+        from capbcp_btch_exec_ctrl
+        where 1=1
+        <if test="sysIdNum != null">
+            and sys_id_num=#{sysIdNum}
+        </if>
+        <if test="btchCtrlId != null">
+            and btch_ctrl_id=#{btchCtrlId}
+        </if>
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-KAPPTXNSYSDT">
+        select
+        <include refid="baseResult"/>
+        from capbcp_txn_sys_dt
+    </select>
+
+
+
+
+select Name: selSysDt
+<select id="selSysDt" resultMap="RM-KAPPTXNSYSDT">
+        select
+        <include refid="baseResult"/>
+        from capbcp_txn_sys_dt
+    </select>
+
+
+
+select Name: selectOne
+<select id="selectOne" resultMap="RM-CapOlpCodeRule" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleDO">
+        select
+        Pk_Id,
+        Enc_Rule_Cre_Cd,
+        Enc_Rule_Cre_Cd_Descb,
+        Enc_Len,
+        Bel_Modu,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No
+        from capolp_code_rule
+        <where>
+            Enc_Rule_Cre_Cd = #{encRuleCreCd}
+            <if test="lPCd != null">
+                and LP_Cd = #{lPCd}
+            </if>
+        </where>
+    </select>
+
+
+select Name: findListByLegalPersonCode
+<select id="findListByLegalPersonCode" resultMap="RM-CapOlpCodeRule" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleDO">
+        select
+        Pk_Id,
+        Enc_Rule_Cre_Cd,
+        Enc_Rule_Cre_Cd_Descb,
+        Enc_Len,
+        Bel_Modu,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No
+        from capolp_code_rule
+        <where>
+            <if test="lPCd!=null">
+                LP_Cd = #{lPCd}
+            </if>
+        </where>
+        <if test="start != null and number != null">
+            limit #{start},#{number}
+        </if>
+    </select>
+
+
+
+select Name: findListByPrimaryKey
+<select id="findListByPrimaryKey" resultMap="RM-CapOlpCodeRuleCpstn" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleCpstnDO">
+        select
+        Pk_Id,
+        Enc_Rule_Cre_Cd,
+        Sequ_No,
+        Ass_Enc_Rule_Min_Unit,
+        Enc_Ass_Chn_Descb,
+        Ass_Len,
+        Cut_Out_Manr,
+        Covrg_Val,
+        Covrg_Manr,
+        Spe_Proce_Ind,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No,
+        Seri_No_Reset_Cyc,
+        Tech_Plat_Sequ_Tab_Pk
+        from capolp_code_rule_cpstn
+        where
+            Enc_Rule_Cre_Cd = #{encRuleCreCd}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </select>
+
+
+select Name: selectForUpdWithCatg
+<select id="selectForUpdWithCatg" resultMap="RM-ApSerlNum" resultType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpSerlNumDO">
+        select
+        Seri_No,
+        Enc_Rule_Cre_Cd,
+        Seri_No_Reset_Cyc,
+        Seri_No_Categ,
+        Last_Tm_Tradi_Dt,
+        LP_Cd,
+        Mainte_Tell,
+        Mainte_Inst,
+        Mainte_Dt,
+        Mainte_Tm,
+        Record_Stat,
+        Overa_Sit_Aff_Stat,
+        Overa_Sit_Aff_Seq_No,
+        Optim_Lock_Vers_No
+        from capolp_serl_num
+        where Seri_No_Categ = #{seriNoCateg}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+        for update
+    </select>
+
+
+
+select Name: selectNumWithCatg
+<select id="selectNumWithCatg" resultType="java.lang.Long">
+        select Seri_No
+        from capolp_serl_num
+        where Seri_No_Categ = #{seriNoCateg}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </select>
+
+
+select Name: getPriKeyByTableName
+<select id="getPriKeyByTableName" resultType="java.lang.String" parameterType="java.lang.String">
+        select COLUMN_NAME from information_schema.columns where table_schema = (select database()) and table_name = #{tableName} and column_key = 'PRI' order by ORDINAL_POSITION
+    </select>

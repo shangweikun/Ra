@@ -1,0 +1,2276 @@
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbBusiLogDO">
+        update capolb_busi_log
+        <set>
+                <if test="recepSeqNo!=null">
+                    Recep_Seq_No = #{recepSeqNo},
+                </if>
+                <if test="requDt!=null">
+                    Requ_Dt = #{requDt},
+                </if>
+                <if test="dBPersistLaycompon!=null">
+                    DB_Persist_Lay_compon = #{dBPersistLaycompon},
+                </if>
+                <if test="tabName!=null">
+                    Tab_Name = #{tabName},
+                </if>
+                <if test="tabEntiCategRoute!=null">
+                    Tab_Enti_Categ_Route = #{tabEntiCategRoute},
+                </if>
+                <if test="dBRecordInd!=null">
+                    DB_Record_Ind = #{dBRecordInd},
+                </if>
+                <if test="oldData!=null">
+                    Old_Data = #{oldData},
+                </if>
+                <if test="newData!=null">
+                    New_Data = #{newData},
+                </if>
+                <if test="routVal!=null">
+                    Rout_Val = #{routVal},
+                </if>
+                <if test="routType!=null">
+                    Rout_Type = #{routType},
+                </if>
+                <if test="unitNo!=null">
+                    Unit_No = #{unitNo},
+                </if>
+                <if test="shardKey!=null">
+                    Shard_Key = #{shardKey},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="micSerName!=null">
+                    Mic_Ser_Name = #{micSerName},
+                </if>
+                 Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Log_SubNo=#{logSubNo}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbBusiLogDO">
+       update capolb_busi_log  set
+                Recep_Seq_No = #{recepSeqNo}
+                ,Requ_Dt = #{requDt}
+                ,DB_Persist_Lay_compon = #{dBPersistLaycompon}
+                ,Tab_Name = #{tabName}
+                ,Tab_Enti_Categ_Route = #{tabEntiCategRoute}
+                ,DB_Record_Ind = #{dBRecordInd}
+                ,Old_Data = #{oldData}
+                ,New_Data = #{newData}
+                ,Rout_Val = #{routVal}
+                ,Rout_Type = #{routType}
+                ,Unit_No = #{unitNo}
+                ,Shard_Key = #{shardKey}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Mic_Ser_Name = #{micSerName}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Log_SubNo=#{logSubNo}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx1Selective
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx1Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        update capolb_rvrs_detl
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="orgnalTranDt!=null">
+                 Orgnal_Tran_Dt = #{orgnalTranDt},
+            </if>
+            <if test="orgnalTranSeqNo!=null">
+                 Orgnal_Tran_Seq_No = #{orgnalTranSeqNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="notesInfo!=null">
+                 Notes_Info = #{notesInfo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+             <if test="optimLockVersNo!=null">
+                 Optim_Lock_Vers_No = #{optimLockVersNo},
+            </if>
+        </set>
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx1
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx1" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+       update capolb_rvrs_detl  set
+             Resp_Seq_No = #{respSeqNo}
+             ,Tran_Dt = #{tranDt}
+             ,Recep_Seq_No = #{recepSeqNo}
+             ,Requ_Dt = #{requDt}
+             ,Orgnal_Tran_Dt = #{orgnalTranDt}
+             ,Orgnal_Tran_Seq_No = #{orgnalTranSeqNo}
+             ,Tran_Tell = #{tranTell}
+             ,Notes_Info = #{notesInfo}
+             ,Shard_Key = #{shardKey}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Optim_Lock_Vers_No = #{optimLockVersNo}
+        WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx2Selective
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx2Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        update capolb_rvrs_detl
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="orgnalTranDt!=null">
+                 Orgnal_Tran_Dt = #{orgnalTranDt},
+            </if>
+            <if test="orgnalTranSeqNo!=null">
+                 Orgnal_Tran_Seq_No = #{orgnalTranSeqNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="notesInfo!=null">
+                 Notes_Info = #{notesInfo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+             <if test="optimLockVersNo!=null">
+                 Optim_Lock_Vers_No = #{optimLockVersNo},
+            </if>
+        </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx2
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx2" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+       update capolb_rvrs_detl  set
+             Resp_Seq_No = #{respSeqNo}
+             ,Tran_Dt = #{tranDt}
+             ,Recep_Seq_No = #{recepSeqNo}
+             ,Requ_Dt = #{requDt}
+             ,Orgnal_Tran_Dt = #{orgnalTranDt}
+             ,Orgnal_Tran_Seq_No = #{orgnalTranSeqNo}
+             ,Tran_Tell = #{tranTell}
+             ,Notes_Info = #{notesInfo}
+             ,Shard_Key = #{shardKey}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Optim_Lock_Vers_No = #{optimLockVersNo}
+        WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        update capolb_rvrs_detl
+        <set>
+                <if test="respSeqNo!=null">
+                    Resp_Seq_No = #{respSeqNo},
+                </if>
+                <if test="tranDt!=null">
+                    Tran_Dt = #{tranDt},
+                </if>
+                <if test="recepSeqNo!=null">
+                    Recep_Seq_No = #{recepSeqNo},
+                </if>
+                <if test="requDt!=null">
+                    Requ_Dt = #{requDt},
+                </if>
+                <if test="tranTell!=null">
+                    Tran_Tell = #{tranTell},
+                </if>
+                <if test="notesInfo!=null">
+                    Notes_Info = #{notesInfo},
+                </if>
+                <if test="shardKey!=null">
+                    Shard_Key = #{shardKey},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                     Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Orgnal_Tran_Dt=#{orgnalTranDt} and Orgnal_Tran_Seq_No=#{orgnalTranSeqNo}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+       update capolb_rvrs_detl  set
+                Resp_Seq_No = #{respSeqNo}
+                ,Tran_Dt = #{tranDt}
+                ,Recep_Seq_No = #{recepSeqNo}
+                ,Requ_Dt = #{requDt}
+                ,Tran_Tell = #{tranTell}
+                ,Notes_Info = #{notesInfo}
+                ,Shard_Key = #{shardKey}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Orgnal_Tran_Dt=#{orgnalTranDt} and Orgnal_Tran_Seq_No=#{orgnalTranSeqNo}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogIdx1Selective
+<update id="updateByUniqueKeyCapOlbTxnLogIdx1Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+        update capolb_txn_log
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="interfSerNo!=null">
+                 Interf_Ser_No = #{interfSerNo},
+            </if>
+            <if test="chanNo!=null">
+                 Chan_No = #{chanNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="tranInstNo!=null">
+                 Tran_Inst_No = #{tranInstNo},
+            </if>
+            <if test="reveInd!=null">
+                 Reve_Ind = #{reveInd},
+            </if>
+            <if test="reveDt!=null">
+                 Reve_Dt = #{reveDt},
+            </if>
+            <if test="reveTell!=null">
+                 Reve_Tell = #{reveTell},
+            </if>
+            <if test="reveInstNo!=null">
+                 Reve_Inst_No = #{reveInstNo},
+            </if>
+            <if test="reveTranSeqNo!=null">
+                 Reve_Tran_Seq_No = #{reveTranSeqNo},
+            </if>
+            <if test="recordChaType!=null">
+                 Record_Cha_Type = #{recordChaType},
+            </if>
+            <if test="routVal!=null">
+                 Rout_Val = #{routVal},
+            </if>
+            <if test="routType!=null">
+                 Rout_Type = #{routType},
+            </if>
+            <if test="unitNo!=null">
+                 Unit_No = #{unitNo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="affType!=null">
+                 Aff_Type = #{affType},
+            </if>
+            <if test="composTranInd!=null">
+                Compos_Tran_Ind = #{composTranInd},
+            </if>
+            <if test="bizPropInfo != null">
+                Biz_Prop_Info = #{bizPropInfo},
+            </if>
+            Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogIdx1
+<update id="updateByUniqueKeyCapOlbTxnLogIdx1" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+       update capolb_txn_log  set
+         Resp_Seq_No = #{respSeqNo}
+         ,Tran_Dt = #{tranDt}
+         ,Recep_Seq_No = #{recepSeqNo}
+         ,Requ_Dt = #{requDt}
+         ,Interf_Ser_No = #{interfSerNo}
+         ,Chan_No = #{chanNo}
+         ,Tran_Tell = #{tranTell}
+         ,Tran_Inst_No = #{tranInstNo}
+         ,Reve_Ind = #{reveInd}
+         ,Reve_Dt = #{reveDt}
+         ,Reve_Tell = #{reveTell}
+         ,Reve_Inst_No = #{reveInstNo}
+         ,Reve_Tran_Seq_No = #{reveTranSeqNo}
+         ,Record_Cha_Type = #{recordChaType}
+         ,Rout_Val = #{routVal}
+         ,Rout_Type = #{routType}
+         ,Unit_No = #{unitNo}
+         ,Shard_Key = #{shardKey}
+         ,LP_Cd = #{lPCd}
+         ,Mainte_Tell = #{mainteTell}
+         ,Mainte_Inst = #{mainteInst}
+         ,Mainte_Dt = #{mainteDt}
+         ,Mainte_Tm = #{mainteTm}
+         ,Record_Stat = #{recordStat}
+         ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+         ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+         ,Aff_Type = #{affType}
+         ,Compos_Tran_Ind = #{composTranInd}
+         ,Biz_Prop_Info = #{bizPropInfo}
+         ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+         WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+        update capolb_txn_log
+         <set>
+             <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+             </if>
+             <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+             </if>
+             <if test="interfSerNo!=null">
+                 Interf_Ser_No = #{interfSerNo},
+             </if>
+             <if test="chanNo!=null">
+                 Chan_No = #{chanNo},
+             </if>
+             <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+             </if>
+             <if test="tranInstNo!=null">
+                 Tran_Inst_No = #{tranInstNo},
+             </if>
+             <if test="reveInd!=null">
+                 Reve_Ind = #{reveInd},
+             </if>
+             <if test="reveDt!=null">
+                 Reve_Dt = #{reveDt},
+             </if>
+             <if test="reveTell!=null">
+                 Reve_Tell = #{reveTell},
+             </if>
+             <if test="reveInstNo!=null">
+                 Reve_Inst_No = #{reveInstNo},
+             </if>
+             <if test="reveTranSeqNo!=null">
+                 Reve_Tran_Seq_No = #{reveTranSeqNo},
+             </if>
+             <if test="recordChaType!=null">
+                 Record_Cha_Type = #{recordChaType},
+             </if>
+             <if test="routVal!=null">
+                 Rout_Val = #{routVal},
+             </if>
+             <if test="routType!=null">
+                 Rout_Type = #{routType},
+             </if>
+             <if test="unitNo!=null">
+                 Unit_No = #{unitNo},
+             </if>
+             <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+             </if>
+             <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+             </if>
+             <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+             </if>
+             <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+             </if>
+             <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+             </if>
+             <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+             </if>
+             <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+             </if>
+             <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+             </if>
+             <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+             </if>
+             Optim_Lock_Vers_No = Optim_Lock_Vers_No+1,
+             <if test="affType!=null">
+                 Aff_Type = #{affType},
+             </if>
+             <if test="composTranInd!=null">
+                 Compos_Tran_Ind = #{composTranInd},
+             </if>
+              <if test="bizPropInfo!=null">
+                  Biz_Prop_Info = #{bizPropInfo},
+             </if>
+         </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+       update capolb_txn_log  set
+         Recep_Seq_No = #{recepSeqNo}
+         ,Requ_Dt = #{requDt}
+         ,Interf_Ser_No = #{interfSerNo}
+         ,Chan_No = #{chanNo}
+         ,Tran_Tell = #{tranTell}
+         ,Tran_Inst_No = #{tranInstNo}
+         ,Reve_Ind = #{reveInd}
+         ,Reve_Dt = #{reveDt}
+         ,Reve_Tell = #{reveTell}
+         ,Reve_Inst_No = #{reveInstNo}
+         ,Reve_Tran_Seq_No = #{reveTranSeqNo}
+         ,Record_Cha_Type = #{recordChaType}
+         ,Rout_Val = #{routVal}
+         ,Rout_Type = #{routType}
+         ,Unit_No = #{unitNo}
+         ,Shard_Key = #{shardKey}
+         ,LP_Cd = #{lPCd}
+         ,Mainte_Tell = #{mainteTell}
+         ,Mainte_Inst = #{mainteInst}
+         ,Mainte_Dt = #{mainteDt}
+         ,Mainte_Tm = #{mainteTm}
+         ,Record_Stat = #{recordStat}
+         ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+         ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+         ,Aff_Type = #{affType}
+         ,Compos_Tran_Ind = #{composTranInd}
+         ,Biz_Prop_Info = #{bizPropInfo}
+         ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+         WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogRlvcIdx1Selective
+<update id="updateByUniqueKeyCapOlbTxnLogRlvcIdx1Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+        update capolb_txn_log_rlvc
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="interfSerNo!=null">
+                 Interf_Ser_No = #{interfSerNo},
+            </if>
+            <if test="micSerName!=null">
+                 Mic_Ser_Name = #{micSerName},
+            </if>
+            <if test="chanNo!=null">
+                 Chan_No = #{chanNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="tranInstNo!=null">
+                 Tran_Inst_No = #{tranInstNo},
+            </if>
+            <if test="reveInd!=null">
+                 Reve_Ind = #{reveInd},
+            </if>
+            <if test="affType!=null">
+                 Aff_Type = #{affType},
+            </if>
+            <if test="recordChaType!=null">
+                 Record_Cha_Type = #{recordChaType},
+            </if>
+            <if test="routVal!=null">
+                 Rout_Val = #{routVal},
+            </if>
+            <if test="routType!=null">
+                 Rout_Type = #{routType},
+            </if>
+            <if test="unitNo!=null">
+                 Unit_No = #{unitNo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="composTranInd!=null">
+                Compos_Tran_Ind = #{composTranInd},
+            </if>
+            Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogRlvcIdx1
+<update id="updateByUniqueKeyCapOlbTxnLogRlvcIdx1" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+       update capolb_txn_log_rlvc  set
+             Resp_Seq_No = #{respSeqNo}
+             ,Tran_Dt = #{tranDt}
+             ,Recep_Seq_No = #{recepSeqNo}
+             ,Requ_Dt = #{requDt}
+             ,Interf_Ser_No = #{interfSerNo}
+             ,Mic_Ser_Name = #{micSerName}
+             ,Chan_No = #{chanNo}
+             ,Tran_Tell = #{tranTell}
+             ,Tran_Inst_No = #{tranInstNo}
+             ,Reve_Ind = #{reveInd}
+             ,Aff_Type = #{affType}
+             ,Record_Cha_Type = #{recordChaType}
+             ,Rout_Val = #{routVal}
+             ,Rout_Type = #{routType}
+             ,Unit_No = #{unitNo}
+             ,Shard_Key = #{shardKey}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Compos_Tran_Ind = #{composTranInd}
+             ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+        update capolb_txn_log_rlvc
+        <set>
+                <if test="recepSeqNo!=null">
+                    Recep_Seq_No = #{recepSeqNo},
+                </if>
+                <if test="requDt!=null">
+                    Requ_Dt = #{requDt},
+                </if>
+                <if test="interfSerNo!=null">
+                    Interf_Ser_No = #{interfSerNo},
+                </if>
+                <if test="micSerName!=null">
+                    Mic_Ser_Name = #{micSerName},
+                </if>
+                <if test="chanNo!=null">
+                    Chan_No = #{chanNo},
+                </if>
+                <if test="tranTell!=null">
+                    Tran_Tell = #{tranTell},
+                </if>
+                <if test="tranInstNo!=null">
+                    Tran_Inst_No = #{tranInstNo},
+                </if>
+                <if test="reveInd!=null">
+                    Reve_Ind = #{reveInd},
+                </if>
+                <if test="affType!=null">
+                    Aff_Type = #{affType},
+                </if>
+                <if test="recordChaType!=null">
+                    Record_Cha_Type = #{recordChaType},
+                </if>
+                <if test="routVal!=null">
+                    Rout_Val = #{routVal},
+                </if>
+                <if test="routType!=null">
+                    Rout_Type = #{routType},
+                </if>
+                <if test="unitNo!=null">
+                    Unit_No = #{unitNo},
+                </if>
+                <if test="shardKey!=null">
+                    Shard_Key = #{shardKey},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                <if test="composTranInd!=null">
+                    Compos_Tran_Ind = #{composTranInd},
+                </if>
+                 Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+            </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+       update capolb_txn_log_rlvc  set
+                Recep_Seq_No = #{recepSeqNo}
+                ,Requ_Dt = #{requDt}
+                ,Interf_Ser_No = #{interfSerNo}
+                ,Mic_Ser_Name = #{micSerName}
+                ,Chan_No = #{chanNo}
+                ,Tran_Tell = #{tranTell}
+                ,Tran_Inst_No = #{tranInstNo}
+                ,Reve_Ind = #{reveInd}
+                ,Aff_Type = #{affType}
+                ,Record_Cha_Type = #{recordChaType}
+                ,Rout_Val = #{routVal}
+                ,Rout_Type = #{routType}
+                ,Unit_No = #{unitNo}
+                ,Shard_Key = #{shardKey}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Compos_Tran_Ind = #{composTranInd}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyEappRvrsCtrlSelective
+<update id="updateByUniqueKeyEappRvrsCtrlSelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+        update capolp_rvrs_ctrl
+        <set>
+            <if test="pkId!=null">
+                 Pk_Id = #{pkId},
+            </if>
+            <if test="reveLevl!=null">
+                 Reve_Levl = #{reveLevl},
+            </if>
+            <if test="dBTabName!=null">
+                 DB_Tab_Name = #{dBTabName},
+            </if>
+            <if test="billDtlTabInd!=null">
+                 Bill_Dtl_Tab_Ind = #{billDtlTabInd},
+            </if>
+            <if test="tabRecordDelReseInd!=null">
+                 Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd},
+            </if>
+            <if test="fieName!=null">
+                 Fie_Name = #{fieName},
+            </if>
+            <if test="reveRelInd!=null">
+                 Reve_Rel_Ind = #{reveRelInd},
+            </if>
+            <if test="reveFieUpdManr!=null">
+                 Reve_Fie_Upd_Manr = #{reveFieUpdManr},
+            </if>
+            <if test="fieVarValAdjusInd!=null">
+                 Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd},
+            </if>
+            <if test="varValCoveredManr!=null">
+                 Var_Val_Covered_Manr = #{varValCoveredManr},
+            </if>
+            <if test="speValReveInd!=null">
+                 Spe_Val_Reve_Ind = #{speValReveInd},
+            </if>
+            <if test="speValReveList!=null">
+                 Spe_Val_Reve_List = #{speValReveList},
+            </if>
+            <if test="reveRealCateg!=null">
+                 Reve_Real_Categ = #{reveRealCateg},
+            </if>
+            <if test="revePrevRealCateg!=null">
+                 Reve_Prev_Real_Categ = #{revePrevRealCateg},
+            </if>
+            <if test="aftReveRealCateg!=null">
+                 Aft_Reve_Real_Categ = #{aftReveRealCateg},
+            </if>
+            <if test="dtlReveRealCateg!=null">
+                 Dtl_Reve_Real_Categ = #{dtlReveRealCateg},
+            </if>
+            <if test="reveRollBackInd!=null">
+                 Reve_Roll_Back_Ind = #{reveRollBackInd},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+                Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Fie_Name=#{fieName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+     </update>
+
+
+select Name: updateByUniqueKeyEappRvrsCtrl
+<update id="updateByUniqueKeyEappRvrsCtrl" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+       update capolp_rvrs_ctrl  set
+             Pk_Id = #{pkId}
+             ,Reve_Levl = #{reveLevl}
+             ,DB_Tab_Name = #{dBTabName}
+             ,Bill_Dtl_Tab_Ind = #{billDtlTabInd}
+             ,Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd}
+             ,Fie_Name = #{fieName}
+             ,Reve_Rel_Ind = #{reveRelInd}
+             ,Reve_Fie_Upd_Manr = #{reveFieUpdManr}
+             ,Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd}
+             ,Var_Val_Covered_Manr = #{varValCoveredManr}
+             ,Spe_Val_Reve_Ind = #{speValReveInd}
+             ,Spe_Val_Reve_List = #{speValReveList}
+             ,Reve_Real_Categ = #{reveRealCateg}
+             ,Reve_Prev_Real_Categ = #{revePrevRealCateg}
+             ,Aft_Reve_Real_Categ = #{aftReveRealCateg}
+             ,Dtl_Reve_Real_Categ = #{dtlReveRealCateg}
+             ,Reve_Roll_Back_Ind = #{reveRollBackInd}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Fie_Name=#{fieName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+     </update>
+
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+        update capolp_rvrs_ctrl
+        <set>
+                <if test="reveLevl!=null">
+                    Reve_Levl = #{reveLevl},
+                </if>
+                <if test="dBTabName!=null">
+                    DB_Tab_Name = #{dBTabName},
+                </if>
+                <if test="billDtlTabInd!=null">
+                    Bill_Dtl_Tab_Ind = #{billDtlTabInd},
+                </if>
+                <if test="tabRecordDelReseInd!=null">
+                    Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd},
+                </if>
+                <if test="fieName!=null">
+                    Fie_Name = #{fieName},
+                </if>
+                <if test="reveRelInd!=null">
+                    Reve_Rel_Ind = #{reveRelInd},
+                </if>
+                <if test="reveFieUpdManr!=null">
+                    Reve_Fie_Upd_Manr = #{reveFieUpdManr},
+                </if>
+                <if test="fieVarValAdjusInd!=null">
+                    Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd},
+                </if>
+                <if test="varValCoveredManr!=null">
+                    Var_Val_Covered_Manr = #{varValCoveredManr},
+                </if>
+                <if test="speValReveInd!=null">
+                    Spe_Val_Reve_Ind = #{speValReveInd},
+                </if>
+                <if test="speValReveList!=null">
+                    Spe_Val_Reve_List = #{speValReveList},
+                </if>
+                <if test="reveRealCateg!=null">
+                    Reve_Real_Categ = #{reveRealCateg},
+                </if>
+                <if test="revePrevRealCateg!=null">
+                    Reve_Prev_Real_Categ = #{revePrevRealCateg},
+                </if>
+                <if test="aftReveRealCateg!=null">
+                    Aft_Reve_Real_Categ = #{aftReveRealCateg},
+                </if>
+                <if test="dtlReveRealCateg!=null">
+                    Dtl_Reve_Real_Categ = #{dtlReveRealCateg},
+                </if>
+                <if test="reveRollBackInd!=null">
+                    Reve_Roll_Back_Ind = #{reveRollBackInd},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                     Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Pk_Id=#{pkId}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+       update capolp_rvrs_ctrl  set
+                Reve_Levl = #{reveLevl}
+                ,DB_Tab_Name = #{dBTabName}
+                ,Bill_Dtl_Tab_Ind = #{billDtlTabInd}
+                ,Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd}
+                ,Fie_Name = #{fieName}
+                ,Reve_Rel_Ind = #{reveRelInd}
+                ,Reve_Fie_Upd_Manr = #{reveFieUpdManr}
+                ,Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd}
+                ,Var_Val_Covered_Manr = #{varValCoveredManr}
+                ,Spe_Val_Reve_Ind = #{speValReveInd}
+                ,Spe_Val_Reve_List = #{speValReveList}
+                ,Reve_Real_Categ = #{reveRealCateg}
+                ,Reve_Prev_Real_Categ = #{revePrevRealCateg}
+                ,Aft_Reve_Real_Categ = #{aftReveRealCateg}
+                ,Dtl_Reve_Real_Categ = #{dtlReveRealCateg}
+                ,Reve_Roll_Back_Ind = #{reveRollBackInd}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Pk_Id=#{pkId}
+     </update>
+
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsExptDO">
+        update capolp_rvrs_expt
+        <set>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                     Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE DB_Tab_Name=#{dBTabName}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsExptDO">
+       update capolp_rvrs_expt  set
+                LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE DB_Tab_Name=#{dBTabName}
+     </update>
+
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbBusiLogDO">
+        update capolb_busi_log
+        <set>
+                <if test="recepSeqNo!=null">
+                    Recep_Seq_No = #{recepSeqNo},
+                </if>
+                <if test="requDt!=null">
+                    Requ_Dt = #{requDt},
+                </if>
+                <if test="dBPersistLaycompon!=null">
+                    DB_Persist_Lay_compon = #{dBPersistLaycompon},
+                </if>
+                <if test="tabName!=null">
+                    Tab_Name = #{tabName},
+                </if>
+                <if test="tabEntiCategRoute!=null">
+                    Tab_Enti_Categ_Route = #{tabEntiCategRoute},
+                </if>
+                <if test="dBRecordInd!=null">
+                    DB_Record_Ind = #{dBRecordInd},
+                </if>
+                <if test="oldData!=null">
+                    Old_Data = #{oldData},
+                </if>
+                <if test="newData!=null">
+                    New_Data = #{newData},
+                </if>
+                <if test="routVal!=null">
+                    Rout_Val = #{routVal},
+                </if>
+                <if test="routType!=null">
+                    Rout_Type = #{routType},
+                </if>
+                <if test="unitNo!=null">
+                    Unit_No = #{unitNo},
+                </if>
+                <if test="shardKey!=null">
+                    Shard_Key = #{shardKey},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="micSerName!=null">
+                    Mic_Ser_Name = #{micSerName},
+                </if>
+                 Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Log_SubNo=#{logSubNo}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbBusiLogDO">
+       update capolb_busi_log  set
+                Recep_Seq_No = #{recepSeqNo}
+                ,Requ_Dt = #{requDt}
+                ,DB_Persist_Lay_compon = #{dBPersistLaycompon}
+                ,Tab_Name = #{tabName}
+                ,Tab_Enti_Categ_Route = #{tabEntiCategRoute}
+                ,DB_Record_Ind = #{dBRecordInd}
+                ,Old_Data = #{oldData}
+                ,New_Data = #{newData}
+                ,Rout_Val = #{routVal}
+                ,Rout_Type = #{routType}
+                ,Unit_No = #{unitNo}
+                ,Shard_Key = #{shardKey}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Mic_Ser_Name = #{micSerName}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt} and Log_SubNo=#{logSubNo}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx1Selective
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx1Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        update capolb_rvrs_detl
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="orgnalTranDt!=null">
+                 Orgnal_Tran_Dt = #{orgnalTranDt},
+            </if>
+            <if test="orgnalTranSeqNo!=null">
+                 Orgnal_Tran_Seq_No = #{orgnalTranSeqNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="notesInfo!=null">
+                 Notes_Info = #{notesInfo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+             <if test="optimLockVersNo!=null">
+                 Optim_Lock_Vers_No = #{optimLockVersNo},
+            </if>
+        </set>
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx1
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx1" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+       update capolb_rvrs_detl  set
+             Resp_Seq_No = #{respSeqNo}
+             ,Tran_Dt = #{tranDt}
+             ,Recep_Seq_No = #{recepSeqNo}
+             ,Requ_Dt = #{requDt}
+             ,Orgnal_Tran_Dt = #{orgnalTranDt}
+             ,Orgnal_Tran_Seq_No = #{orgnalTranSeqNo}
+             ,Tran_Tell = #{tranTell}
+             ,Notes_Info = #{notesInfo}
+             ,Shard_Key = #{shardKey}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Optim_Lock_Vers_No = #{optimLockVersNo}
+        WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx2Selective
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx2Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        update capolb_rvrs_detl
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="orgnalTranDt!=null">
+                 Orgnal_Tran_Dt = #{orgnalTranDt},
+            </if>
+            <if test="orgnalTranSeqNo!=null">
+                 Orgnal_Tran_Seq_No = #{orgnalTranSeqNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="notesInfo!=null">
+                 Notes_Info = #{notesInfo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+             <if test="optimLockVersNo!=null">
+                 Optim_Lock_Vers_No = #{optimLockVersNo},
+            </if>
+        </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbRvrsDetlIdx2
+<update id="updateByUniqueKeyCapOlbRvrsDetlIdx2" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+       update capolb_rvrs_detl  set
+             Resp_Seq_No = #{respSeqNo}
+             ,Tran_Dt = #{tranDt}
+             ,Recep_Seq_No = #{recepSeqNo}
+             ,Requ_Dt = #{requDt}
+             ,Orgnal_Tran_Dt = #{orgnalTranDt}
+             ,Orgnal_Tran_Seq_No = #{orgnalTranSeqNo}
+             ,Tran_Tell = #{tranTell}
+             ,Notes_Info = #{notesInfo}
+             ,Shard_Key = #{shardKey}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Optim_Lock_Vers_No = #{optimLockVersNo}
+        WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+        update capolb_rvrs_detl
+        <set>
+                <if test="respSeqNo!=null">
+                    Resp_Seq_No = #{respSeqNo},
+                </if>
+                <if test="tranDt!=null">
+                    Tran_Dt = #{tranDt},
+                </if>
+                <if test="recepSeqNo!=null">
+                    Recep_Seq_No = #{recepSeqNo},
+                </if>
+                <if test="requDt!=null">
+                    Requ_Dt = #{requDt},
+                </if>
+                <if test="tranTell!=null">
+                    Tran_Tell = #{tranTell},
+                </if>
+                <if test="notesInfo!=null">
+                    Notes_Info = #{notesInfo},
+                </if>
+                <if test="shardKey!=null">
+                    Shard_Key = #{shardKey},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                     Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Orgnal_Tran_Dt=#{orgnalTranDt} and Orgnal_Tran_Seq_No=#{orgnalTranSeqNo}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbRvrsDetlDO">
+       update capolb_rvrs_detl  set
+                Resp_Seq_No = #{respSeqNo}
+                ,Tran_Dt = #{tranDt}
+                ,Recep_Seq_No = #{recepSeqNo}
+                ,Requ_Dt = #{requDt}
+                ,Tran_Tell = #{tranTell}
+                ,Notes_Info = #{notesInfo}
+                ,Shard_Key = #{shardKey}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Orgnal_Tran_Dt=#{orgnalTranDt} and Orgnal_Tran_Seq_No=#{orgnalTranSeqNo}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogIdx1Selective
+<update id="updateByUniqueKeyCapOlbTxnLogIdx1Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+        update capolb_txn_log
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="interfSerNo!=null">
+                 Interf_Ser_No = #{interfSerNo},
+            </if>
+            <if test="chanNo!=null">
+                 Chan_No = #{chanNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="tranInstNo!=null">
+                 Tran_Inst_No = #{tranInstNo},
+            </if>
+            <if test="reveInd!=null">
+                 Reve_Ind = #{reveInd},
+            </if>
+            <if test="reveDt!=null">
+                 Reve_Dt = #{reveDt},
+            </if>
+            <if test="reveTell!=null">
+                 Reve_Tell = #{reveTell},
+            </if>
+            <if test="reveInstNo!=null">
+                 Reve_Inst_No = #{reveInstNo},
+            </if>
+            <if test="reveTranSeqNo!=null">
+                 Reve_Tran_Seq_No = #{reveTranSeqNo},
+            </if>
+            <if test="recordChaType!=null">
+                 Record_Cha_Type = #{recordChaType},
+            </if>
+            <if test="routVal!=null">
+                 Rout_Val = #{routVal},
+            </if>
+            <if test="routType!=null">
+                 Rout_Type = #{routType},
+            </if>
+            <if test="unitNo!=null">
+                 Unit_No = #{unitNo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="affType!=null">
+                 Aff_Type = #{affType},
+            </if>
+            <if test="composTranInd!=null">
+                Compos_Tran_Ind = #{composTranInd},
+            </if>
+            <if test="bizPropInfo != null">
+                Biz_Prop_Info = #{bizPropInfo},
+            </if>
+            Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogIdx1
+<update id="updateByUniqueKeyCapOlbTxnLogIdx1" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+       update capolb_txn_log  set
+         Resp_Seq_No = #{respSeqNo}
+         ,Tran_Dt = #{tranDt}
+         ,Recep_Seq_No = #{recepSeqNo}
+         ,Requ_Dt = #{requDt}
+         ,Interf_Ser_No = #{interfSerNo}
+         ,Chan_No = #{chanNo}
+         ,Tran_Tell = #{tranTell}
+         ,Tran_Inst_No = #{tranInstNo}
+         ,Reve_Ind = #{reveInd}
+         ,Reve_Dt = #{reveDt}
+         ,Reve_Tell = #{reveTell}
+         ,Reve_Inst_No = #{reveInstNo}
+         ,Reve_Tran_Seq_No = #{reveTranSeqNo}
+         ,Record_Cha_Type = #{recordChaType}
+         ,Rout_Val = #{routVal}
+         ,Rout_Type = #{routType}
+         ,Unit_No = #{unitNo}
+         ,Shard_Key = #{shardKey}
+         ,LP_Cd = #{lPCd}
+         ,Mainte_Tell = #{mainteTell}
+         ,Mainte_Inst = #{mainteInst}
+         ,Mainte_Dt = #{mainteDt}
+         ,Mainte_Tm = #{mainteTm}
+         ,Record_Stat = #{recordStat}
+         ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+         ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+         ,Aff_Type = #{affType}
+         ,Compos_Tran_Ind = #{composTranInd}
+         ,Biz_Prop_Info = #{bizPropInfo}
+         ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+         WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+        update capolb_txn_log
+         <set>
+             <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+             </if>
+             <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+             </if>
+             <if test="interfSerNo!=null">
+                 Interf_Ser_No = #{interfSerNo},
+             </if>
+             <if test="chanNo!=null">
+                 Chan_No = #{chanNo},
+             </if>
+             <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+             </if>
+             <if test="tranInstNo!=null">
+                 Tran_Inst_No = #{tranInstNo},
+             </if>
+             <if test="reveInd!=null">
+                 Reve_Ind = #{reveInd},
+             </if>
+             <if test="reveDt!=null">
+                 Reve_Dt = #{reveDt},
+             </if>
+             <if test="reveTell!=null">
+                 Reve_Tell = #{reveTell},
+             </if>
+             <if test="reveInstNo!=null">
+                 Reve_Inst_No = #{reveInstNo},
+             </if>
+             <if test="reveTranSeqNo!=null">
+                 Reve_Tran_Seq_No = #{reveTranSeqNo},
+             </if>
+             <if test="recordChaType!=null">
+                 Record_Cha_Type = #{recordChaType},
+             </if>
+             <if test="routVal!=null">
+                 Rout_Val = #{routVal},
+             </if>
+             <if test="routType!=null">
+                 Rout_Type = #{routType},
+             </if>
+             <if test="unitNo!=null">
+                 Unit_No = #{unitNo},
+             </if>
+             <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+             </if>
+             <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+             </if>
+             <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+             </if>
+             <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+             </if>
+             <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+             </if>
+             <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+             </if>
+             <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+             </if>
+             <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+             </if>
+             <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+             </if>
+             Optim_Lock_Vers_No = Optim_Lock_Vers_No+1,
+             <if test="affType!=null">
+                 Aff_Type = #{affType},
+             </if>
+             <if test="composTranInd!=null">
+                 Compos_Tran_Ind = #{composTranInd},
+             </if>
+              <if test="bizPropInfo!=null">
+                  Biz_Prop_Info = #{bizPropInfo},
+             </if>
+         </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogDO">
+       update capolb_txn_log  set
+         Recep_Seq_No = #{recepSeqNo}
+         ,Requ_Dt = #{requDt}
+         ,Interf_Ser_No = #{interfSerNo}
+         ,Chan_No = #{chanNo}
+         ,Tran_Tell = #{tranTell}
+         ,Tran_Inst_No = #{tranInstNo}
+         ,Reve_Ind = #{reveInd}
+         ,Reve_Dt = #{reveDt}
+         ,Reve_Tell = #{reveTell}
+         ,Reve_Inst_No = #{reveInstNo}
+         ,Reve_Tran_Seq_No = #{reveTranSeqNo}
+         ,Record_Cha_Type = #{recordChaType}
+         ,Rout_Val = #{routVal}
+         ,Rout_Type = #{routType}
+         ,Unit_No = #{unitNo}
+         ,Shard_Key = #{shardKey}
+         ,LP_Cd = #{lPCd}
+         ,Mainte_Tell = #{mainteTell}
+         ,Mainte_Inst = #{mainteInst}
+         ,Mainte_Dt = #{mainteDt}
+         ,Mainte_Tm = #{mainteTm}
+         ,Record_Stat = #{recordStat}
+         ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+         ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+         ,Aff_Type = #{affType}
+         ,Compos_Tran_Ind = #{composTranInd}
+         ,Biz_Prop_Info = #{bizPropInfo}
+         ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+         WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogRlvcIdx1Selective
+<update id="updateByUniqueKeyCapOlbTxnLogRlvcIdx1Selective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+        update capolb_txn_log_rlvc
+        <set>
+            <if test="respSeqNo!=null">
+                 Resp_Seq_No = #{respSeqNo},
+            </if>
+            <if test="tranDt!=null">
+                 Tran_Dt = #{tranDt},
+            </if>
+            <if test="recepSeqNo!=null">
+                 Recep_Seq_No = #{recepSeqNo},
+            </if>
+            <if test="requDt!=null">
+                 Requ_Dt = #{requDt},
+            </if>
+            <if test="interfSerNo!=null">
+                 Interf_Ser_No = #{interfSerNo},
+            </if>
+            <if test="micSerName!=null">
+                 Mic_Ser_Name = #{micSerName},
+            </if>
+            <if test="chanNo!=null">
+                 Chan_No = #{chanNo},
+            </if>
+            <if test="tranTell!=null">
+                 Tran_Tell = #{tranTell},
+            </if>
+            <if test="tranInstNo!=null">
+                 Tran_Inst_No = #{tranInstNo},
+            </if>
+            <if test="reveInd!=null">
+                 Reve_Ind = #{reveInd},
+            </if>
+            <if test="affType!=null">
+                 Aff_Type = #{affType},
+            </if>
+            <if test="recordChaType!=null">
+                 Record_Cha_Type = #{recordChaType},
+            </if>
+            <if test="routVal!=null">
+                 Rout_Val = #{routVal},
+            </if>
+            <if test="routType!=null">
+                 Rout_Type = #{routType},
+            </if>
+            <if test="unitNo!=null">
+                 Unit_No = #{unitNo},
+            </if>
+            <if test="shardKey!=null">
+                 Shard_Key = #{shardKey},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="composTranInd!=null">
+                Compos_Tran_Ind = #{composTranInd},
+            </if>
+            Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+select Name: updateByUniqueKeyCapOlbTxnLogRlvcIdx1
+<update id="updateByUniqueKeyCapOlbTxnLogRlvcIdx1" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+       update capolb_txn_log_rlvc  set
+             Resp_Seq_No = #{respSeqNo}
+             ,Tran_Dt = #{tranDt}
+             ,Recep_Seq_No = #{recepSeqNo}
+             ,Requ_Dt = #{requDt}
+             ,Interf_Ser_No = #{interfSerNo}
+             ,Mic_Ser_Name = #{micSerName}
+             ,Chan_No = #{chanNo}
+             ,Tran_Tell = #{tranTell}
+             ,Tran_Inst_No = #{tranInstNo}
+             ,Reve_Ind = #{reveInd}
+             ,Aff_Type = #{affType}
+             ,Record_Cha_Type = #{recordChaType}
+             ,Rout_Val = #{routVal}
+             ,Rout_Type = #{routType}
+             ,Unit_No = #{unitNo}
+             ,Shard_Key = #{shardKey}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Compos_Tran_Ind = #{composTranInd}
+             ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+       WHERE Recep_Seq_No=#{recepSeqNo} and Requ_Dt=#{requDt}
+     </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+        update capolb_txn_log_rlvc
+        <set>
+                <if test="recepSeqNo!=null">
+                    Recep_Seq_No = #{recepSeqNo},
+                </if>
+                <if test="requDt!=null">
+                    Requ_Dt = #{requDt},
+                </if>
+                <if test="interfSerNo!=null">
+                    Interf_Ser_No = #{interfSerNo},
+                </if>
+                <if test="micSerName!=null">
+                    Mic_Ser_Name = #{micSerName},
+                </if>
+                <if test="chanNo!=null">
+                    Chan_No = #{chanNo},
+                </if>
+                <if test="tranTell!=null">
+                    Tran_Tell = #{tranTell},
+                </if>
+                <if test="tranInstNo!=null">
+                    Tran_Inst_No = #{tranInstNo},
+                </if>
+                <if test="reveInd!=null">
+                    Reve_Ind = #{reveInd},
+                </if>
+                <if test="affType!=null">
+                    Aff_Type = #{affType},
+                </if>
+                <if test="recordChaType!=null">
+                    Record_Cha_Type = #{recordChaType},
+                </if>
+                <if test="routVal!=null">
+                    Rout_Val = #{routVal},
+                </if>
+                <if test="routType!=null">
+                    Rout_Type = #{routType},
+                </if>
+                <if test="unitNo!=null">
+                    Unit_No = #{unitNo},
+                </if>
+                <if test="shardKey!=null">
+                    Shard_Key = #{shardKey},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                <if test="composTranInd!=null">
+                    Compos_Tran_Ind = #{composTranInd},
+                </if>
+                 Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+            </set>
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlbTxnLogRlvcDO">
+       update capolb_txn_log_rlvc  set
+                Recep_Seq_No = #{recepSeqNo}
+                ,Requ_Dt = #{requDt}
+                ,Interf_Ser_No = #{interfSerNo}
+                ,Mic_Ser_Name = #{micSerName}
+                ,Chan_No = #{chanNo}
+                ,Tran_Tell = #{tranTell}
+                ,Tran_Inst_No = #{tranInstNo}
+                ,Reve_Ind = #{reveInd}
+                ,Aff_Type = #{affType}
+                ,Record_Cha_Type = #{recordChaType}
+                ,Rout_Val = #{routVal}
+                ,Rout_Type = #{routType}
+                ,Unit_No = #{unitNo}
+                ,Shard_Key = #{shardKey}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Compos_Tran_Ind = #{composTranInd}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+       WHERE Resp_Seq_No=#{respSeqNo} and Tran_Dt=#{tranDt}
+     </update>
+
+
+
+
+select Name: updateByUniqueKeyEappRvrsCtrlSelective
+<update id="updateByUniqueKeyEappRvrsCtrlSelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+        update capolp_rvrs_ctrl
+        <set>
+            <if test="pkId!=null">
+                 Pk_Id = #{pkId},
+            </if>
+            <if test="reveLevl!=null">
+                 Reve_Levl = #{reveLevl},
+            </if>
+            <if test="dBTabName!=null">
+                 DB_Tab_Name = #{dBTabName},
+            </if>
+            <if test="billDtlTabInd!=null">
+                 Bill_Dtl_Tab_Ind = #{billDtlTabInd},
+            </if>
+            <if test="tabRecordDelReseInd!=null">
+                 Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd},
+            </if>
+            <if test="fieName!=null">
+                 Fie_Name = #{fieName},
+            </if>
+            <if test="reveRelInd!=null">
+                 Reve_Rel_Ind = #{reveRelInd},
+            </if>
+            <if test="reveFieUpdManr!=null">
+                 Reve_Fie_Upd_Manr = #{reveFieUpdManr},
+            </if>
+            <if test="fieVarValAdjusInd!=null">
+                 Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd},
+            </if>
+            <if test="varValCoveredManr!=null">
+                 Var_Val_Covered_Manr = #{varValCoveredManr},
+            </if>
+            <if test="speValReveInd!=null">
+                 Spe_Val_Reve_Ind = #{speValReveInd},
+            </if>
+            <if test="speValReveList!=null">
+                 Spe_Val_Reve_List = #{speValReveList},
+            </if>
+            <if test="reveRealCateg!=null">
+                 Reve_Real_Categ = #{reveRealCateg},
+            </if>
+            <if test="revePrevRealCateg!=null">
+                 Reve_Prev_Real_Categ = #{revePrevRealCateg},
+            </if>
+            <if test="aftReveRealCateg!=null">
+                 Aft_Reve_Real_Categ = #{aftReveRealCateg},
+            </if>
+            <if test="dtlReveRealCateg!=null">
+                 Dtl_Reve_Real_Categ = #{dtlReveRealCateg},
+            </if>
+            <if test="reveRollBackInd!=null">
+                 Reve_Roll_Back_Ind = #{reveRollBackInd},
+            </if>
+            <if test="lPCd!=null">
+                 LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell!=null">
+                 Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst!=null">
+                 Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt!=null">
+                 Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm!=null">
+                 Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat!=null">
+                 Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat!=null">
+                 Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo!=null">
+                 Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+                Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Fie_Name=#{fieName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+     </update>
+
+
+select Name: updateByUniqueKeyEappRvrsCtrl
+<update id="updateByUniqueKeyEappRvrsCtrl" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+       update capolp_rvrs_ctrl  set
+             Pk_Id = #{pkId}
+             ,Reve_Levl = #{reveLevl}
+             ,DB_Tab_Name = #{dBTabName}
+             ,Bill_Dtl_Tab_Ind = #{billDtlTabInd}
+             ,Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd}
+             ,Fie_Name = #{fieName}
+             ,Reve_Rel_Ind = #{reveRelInd}
+             ,Reve_Fie_Upd_Manr = #{reveFieUpdManr}
+             ,Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd}
+             ,Var_Val_Covered_Manr = #{varValCoveredManr}
+             ,Spe_Val_Reve_Ind = #{speValReveInd}
+             ,Spe_Val_Reve_List = #{speValReveList}
+             ,Reve_Real_Categ = #{reveRealCateg}
+             ,Reve_Prev_Real_Categ = #{revePrevRealCateg}
+             ,Aft_Reve_Real_Categ = #{aftReveRealCateg}
+             ,Dtl_Reve_Real_Categ = #{dtlReveRealCateg}
+             ,Reve_Roll_Back_Ind = #{reveRollBackInd}
+             ,LP_Cd = #{lPCd}
+             ,Mainte_Tell = #{mainteTell}
+             ,Mainte_Inst = #{mainteInst}
+             ,Mainte_Dt = #{mainteDt}
+             ,Mainte_Tm = #{mainteTm}
+             ,Record_Stat = #{recordStat}
+             ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+             ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+             ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Reve_Levl=#{reveLevl} and DB_Tab_Name=#{dBTabName} and Fie_Name=#{fieName} and Reve_Roll_Back_Ind=#{reveRollBackInd}
+     </update>
+
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+        update capolp_rvrs_ctrl
+        <set>
+                <if test="reveLevl!=null">
+                    Reve_Levl = #{reveLevl},
+                </if>
+                <if test="dBTabName!=null">
+                    DB_Tab_Name = #{dBTabName},
+                </if>
+                <if test="billDtlTabInd!=null">
+                    Bill_Dtl_Tab_Ind = #{billDtlTabInd},
+                </if>
+                <if test="tabRecordDelReseInd!=null">
+                    Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd},
+                </if>
+                <if test="fieName!=null">
+                    Fie_Name = #{fieName},
+                </if>
+                <if test="reveRelInd!=null">
+                    Reve_Rel_Ind = #{reveRelInd},
+                </if>
+                <if test="reveFieUpdManr!=null">
+                    Reve_Fie_Upd_Manr = #{reveFieUpdManr},
+                </if>
+                <if test="fieVarValAdjusInd!=null">
+                    Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd},
+                </if>
+                <if test="varValCoveredManr!=null">
+                    Var_Val_Covered_Manr = #{varValCoveredManr},
+                </if>
+                <if test="speValReveInd!=null">
+                    Spe_Val_Reve_Ind = #{speValReveInd},
+                </if>
+                <if test="speValReveList!=null">
+                    Spe_Val_Reve_List = #{speValReveList},
+                </if>
+                <if test="reveRealCateg!=null">
+                    Reve_Real_Categ = #{reveRealCateg},
+                </if>
+                <if test="revePrevRealCateg!=null">
+                    Reve_Prev_Real_Categ = #{revePrevRealCateg},
+                </if>
+                <if test="aftReveRealCateg!=null">
+                    Aft_Reve_Real_Categ = #{aftReveRealCateg},
+                </if>
+                <if test="dtlReveRealCateg!=null">
+                    Dtl_Reve_Real_Categ = #{dtlReveRealCateg},
+                </if>
+                <if test="reveRollBackInd!=null">
+                    Reve_Roll_Back_Ind = #{reveRollBackInd},
+                </if>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                     Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE Pk_Id=#{pkId}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsCtrlDO">
+       update capolp_rvrs_ctrl  set
+                Reve_Levl = #{reveLevl}
+                ,DB_Tab_Name = #{dBTabName}
+                ,Bill_Dtl_Tab_Ind = #{billDtlTabInd}
+                ,Tab_Record_Del_Rese_Ind = #{tabRecordDelReseInd}
+                ,Fie_Name = #{fieName}
+                ,Reve_Rel_Ind = #{reveRelInd}
+                ,Reve_Fie_Upd_Manr = #{reveFieUpdManr}
+                ,Fie_Var_Val_Adjus_Ind = #{fieVarValAdjusInd}
+                ,Var_Val_Covered_Manr = #{varValCoveredManr}
+                ,Spe_Val_Reve_Ind = #{speValReveInd}
+                ,Spe_Val_Reve_List = #{speValReveList}
+                ,Reve_Real_Categ = #{reveRealCateg}
+                ,Reve_Prev_Real_Categ = #{revePrevRealCateg}
+                ,Aft_Reve_Real_Categ = #{aftReveRealCateg}
+                ,Dtl_Reve_Real_Categ = #{dtlReveRealCateg}
+                ,Reve_Roll_Back_Ind = #{reveRollBackInd}
+                ,LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE Pk_Id=#{pkId}
+     </update>
+
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsExptDO">
+        update capolp_rvrs_expt
+        <set>
+                <if test="lPCd!=null">
+                    LP_Cd = #{lPCd},
+                </if>
+                <if test="mainteTell!=null">
+                    Mainte_Tell = #{mainteTell},
+                </if>
+                <if test="mainteInst!=null">
+                    Mainte_Inst = #{mainteInst},
+                </if>
+                <if test="mainteDt!=null">
+                    Mainte_Dt = #{mainteDt},
+                </if>
+                <if test="mainteTm!=null">
+                    Mainte_Tm = #{mainteTm},
+                </if>
+                <if test="recordStat!=null">
+                    Record_Stat = #{recordStat},
+                </if>
+                <if test="overaSitAffStat!=null">
+                    Overa_Sit_Aff_Stat = #{overaSitAffStat},
+                </if>
+                <if test="overaSitAffSeqNo!=null">
+                    Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+                </if>
+                     Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        </set>
+       WHERE DB_Tab_Name=#{dBTabName}
+     </update>
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.entity.CapOlpRvrsExptDO">
+       update capolp_rvrs_expt  set
+                LP_Cd = #{lPCd}
+                ,Mainte_Tell = #{mainteTell}
+                ,Mainte_Inst = #{mainteInst}
+                ,Mainte_Dt = #{mainteDt}
+                ,Mainte_Tm = #{mainteTm}
+                ,Record_Stat = #{recordStat}
+                ,Overa_Sit_Aff_Stat = #{overaSitAffStat}
+                ,Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo}
+                ,Optim_Lock_Vers_No = Optim_Lock_Vers_No+1
+        WHERE DB_Tab_Name=#{dBTabName}
+     </update>

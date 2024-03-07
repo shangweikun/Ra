@@ -1,0 +1,321 @@
+select Name: selectTableNameListForAll
+<select id="selectTableNameListForAll" resultType="String">
+        select distinct cptc.table_name from cappab_param_table_config cptc
+    </select>
+
+
+select Name: queryParamConfigByTableName
+<select id="queryParamConfigByTableName" resultMap="paramConfig">
+        select
+        <include refid="paramTableConfig"/>
+        from cappab_param_table_config
+        where table_name = #{name}
+    </select>
+
+
+select Name: selectQueryParamConfigByTableName
+<select id="selectQueryParamConfigByTableName" parameterType="java.util.List" resultMap="paramConfig">
+        select
+        <include refid="paramTableConfig"/>
+        from cappab_param_table_config
+        where table_name IN
+        <if test="list != null and list.size&gt;0">
+            <foreach collection="list" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+
+select Name: selectQueryParamConfig
+<select id="selectQueryParamConfig" resultMap="paramConfig">
+        select
+        <include refid="paramTableConfig"/>
+        from cappab_param_table_config
+    </select>
+
+
+select Name: selectDeleteDos
+<select id="selectDeleteDos" resultMap="RM-CAPPABPARAMDELETERELATION">
+        select <include refid="cappab_param_table_delete_log_base_column_list"/>
+        from cappab_param_table_delete_log
+        where table_name = #{tableName, jdbcType=VARCHAR}
+        and  param_version &gt; #{paramVersionBegin, jdbcType=BIGINT}
+        and param_version &lt;= #{paramVersionEnd, jdbcType=BIGINT}
+    </select>
+
+
+
+select Name: selectByPrimaryKey
+<select id="selectByPrimaryKey" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE id=#{id, jdbcType=BIGINT}
+    </select>
+
+
+
+select Name: selectForUpdateByPrimaryKey
+<select id="selectForUpdateByPrimaryKey" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE id=#{id, jdbcType=BIGINT}
+        FOR UPDATE
+    </select>
+
+
+
+select Name: selectByPrimaryKeyList
+<select id="selectByPrimaryKeyList" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE (id) IN
+        (
+        <foreach collection="list" item="data" separator=",">
+            (#{data.id, jdbcType=BIGINT})
+        </foreach>
+        )
+    </select>
+
+
+
+select Name: selectForUpdateByPrimaryKeyList
+<select id="selectForUpdateByPrimaryKeyList" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE (id) IN
+        (
+        <foreach collection="list" item="data" separator=",">
+            (#{data.id, jdbcType=BIGINT})
+        </foreach>
+        )
+        FOR UPDATE
+    </select>
+
+
+
+select Name: getCappabParamMainVersionList
+<select id="getCappabParamMainVersionList" resultMap="RM-CAPPABPARAMMAINVERSION">
+        select id,param_version,push_flag, push_fail_times,create_time,update_time
+        from cappab_param_main_version cpmv
+        where cpmv.push_flag = 0
+        order by cpmv.param_version desc
+    </select>
+
+
+
+select Name: queryConsulConfig
+<select id="queryConsulConfig" resultType="java.lang.String">
+        select value from ec_consul_config where path = #{path}
+    </select>
+
+
+
+select Name: selectMAXVersionNoForOne
+<select id="selectMAXVersionNoForOne" resultType="Long">
+        select max(cpmv.param_version) from cappab_param_main_version AS cpmv
+    </select>
+
+
+
+select Name: selectTableNameListForAll
+<select id="selectTableNameListForAll" resultType="String">
+        select distinct cptc.table_name from cappab_param_table_config cptc
+    </select>
+
+
+select Name: queryParamConfigByTableName
+<select id="queryParamConfigByTableName" resultMap="paramConfig">
+        select
+        <include refid="paramTableConfig"/>
+        from cappab_param_table_config
+        where table_name = #{name}
+    </select>
+
+
+select Name: selectQueryParamConfigByTableName
+<select id="selectQueryParamConfigByTableName" parameterType="java.util.List" resultMap="paramConfig">
+        select
+        <include refid="paramTableConfig"/>
+        from cappab_param_table_config
+        where table_name IN
+        <if test="list != null and list.size&gt;0">
+            <foreach collection="list" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+
+select Name: selectQueryParamConfig
+<select id="selectQueryParamConfig" resultMap="paramConfig">
+        select
+        <include refid="paramTableConfig"/>
+        from cappab_param_table_config
+    </select>
+
+
+select Name: selectDeleteDos
+<select id="selectDeleteDos" resultMap="RM-CAPPABPARAMDELETERELATION">
+        select <include refid="cappab_param_table_delete_log_base_column_list"/>
+        from cappab_param_table_delete_log
+        where table_name = #{tableName, jdbcType=VARCHAR}
+        and  param_version &gt; #{paramVersionBegin, jdbcType=BIGINT}
+        and param_version &lt;= #{paramVersionEnd, jdbcType=BIGINT}
+    </select>
+
+
+
+select Name: selectByPrimaryKey
+<select id="selectByPrimaryKey" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE id=#{id, jdbcType=BIGINT}
+    </select>
+
+
+
+select Name: selectForUpdateByPrimaryKey
+<select id="selectForUpdateByPrimaryKey" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE id=#{id, jdbcType=BIGINT}
+        FOR UPDATE
+    </select>
+
+
+
+select Name: selectByPrimaryKeyList
+<select id="selectByPrimaryKeyList" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE (id) IN
+        (
+        <foreach collection="list" item="data" separator=",">
+            (#{data.id, jdbcType=BIGINT})
+        </foreach>
+        )
+    </select>
+
+
+
+select Name: selectForUpdateByPrimaryKeyList
+<select id="selectForUpdateByPrimaryKeyList" resultMap="RM-CAPPABPARAMMAINVERSION">
+        SELECT
+        <include refid="cappabparammainversionbase_column_list"/>
+        FROM cappab_param_main_version
+        WHERE (id) IN
+        (
+        <foreach collection="list" item="data" separator=",">
+            (#{data.id, jdbcType=BIGINT})
+        </foreach>
+        )
+        FOR UPDATE
+    </select>
+
+
+
+select Name: getCappabParamMainVersionList
+<select id="getCappabParamMainVersionList" resultMap="RM-CAPPABPARAMMAINVERSION">
+        select id,param_version,push_flag, push_fail_times,create_time,update_time
+        from cappab_param_main_version cpmv
+        where cpmv.push_flag = 0
+        order by cpmv.param_version desc
+    </select>
+
+
+
+select Name: queryConsulConfig
+<select id="queryConsulConfig" resultType="java.lang.String">
+        select value from ec_consul_config where path = #{path}
+    </select>
+
+
+
+select Name: selectMAXVersionNoForOne
+<select id="selectMAXVersionNoForOne" resultType="Long">
+        select max(cpmv.param_version) from cappab_param_main_version AS cpmv
+    </select>
+
+
+
+select Name: selIncreParam
+<select id="selIncreParam" parameterType="com.cebbank.poin.processcache.remote.common.dto.request.IncreQueryParam" resultType="java.util.Map">
+       select * from ${tableName} where Tab_Vers_No &lt;= #{paramVersionEnd} and Tab_Vers_No &gt; #{paramVersionBegin}
+    </select>
+
+
+
+select Name: selTotalParam
+<select id="selTotalParam" resultType="java.util.HashMap">
+        select * from ${tableName} where Tab_Vers_No &lt;= #{paramVersionEnd} and Tab_Vers_No &gt;= 0 order by
+        ${primaryColumnField} desc
+    </select>
+
+
+
+select Name: selectMaxParamVersion
+<select id="selectMaxParamVersion" resultType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        select id,max(param_version) as param_version,push_flag,push_fail_times,create_time,update_time
+        from cappab_param_main_version
+    </select>
+
+
+
+select Name: selectParamMainVerRelListByMainVerNo
+<select id="selectParamMainVerRelListByMainVerNo" resultMap="paramQuery">
+        select id,table_name,param_version,invaild_param_version,table_update_type,create_time,update_time
+        from cappab_param_main_table_version_relation
+        where param_version &gt; #{currentParamVersion} and param_version &lt;= #{ownParamVersion}
+        AND table_name IN
+        <if test="list != null and list.size&gt;0">
+            <foreach collection="list" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>
+
+
+
+select Name: selIncreParam
+<select id="selIncreParam" parameterType="com.cebbank.poin.processcache.remote.common.dto.request.IncreQueryParam" resultType="java.util.Map">
+       select * from ${tableName} where Tab_Vers_No &lt;= #{paramVersionEnd} and Tab_Vers_No &gt; #{paramVersionBegin}
+    </select>
+
+
+
+select Name: selTotalParam
+<select id="selTotalParam" resultType="java.util.HashMap">
+        select * from ${tableName} where Tab_Vers_No &lt;= #{paramVersionEnd} and Tab_Vers_No &gt;= 0 order by
+        ${primaryColumnField} desc
+    </select>
+
+
+
+select Name: selectMaxParamVersion
+<select id="selectMaxParamVersion" resultType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        select id,max(param_version) as param_version,push_flag,push_fail_times,create_time,update_time
+        from cappab_param_main_version
+    </select>
+
+
+
+select Name: selectParamMainVerRelListByMainVerNo
+<select id="selectParamMainVerRelListByMainVerNo" resultMap="paramQuery">
+        select id,table_name,param_version,invaild_param_version,table_update_type,create_time,update_time
+        from cappab_param_main_table_version_relation
+        where param_version &gt; #{currentParamVersion} and param_version &lt;= #{ownParamVersion}
+        AND table_name IN
+        <if test="list != null and list.size&gt;0">
+            <foreach collection="list" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+    </select>

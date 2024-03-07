@@ -1,0 +1,734 @@
+select Name: update
+<update id="update">
+        update capbcp_sms_name_id
+        set last_re_time = #{timeStr, jdbcType=VARCHAR}
+        where 1=1
+    </update>
+
+
+
+select Name: updateTaskPriorityByBatchNo
+<update id="updateTaskPriorityByBatchNo" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="taskPrio!=null">
+                Task_Prio = #{taskPrio, jdbcType=INTEGER},
+            </if>
+            <if test="timest!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+    </update>
+
+
+
+select Name: updateTaskPriorityByBatchNoAndOldPriority
+<update id="updateTaskPriorityByBatchNoAndOldPriority" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="taskPriority!=null">
+                Task_Prio = #{taskPriority, jdbcType=INTEGER},
+            </if>
+            <if test="timestamp!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR} and Task_Prio=#{oldTaskPriority,jdbcType=VARCHAR}
+    </update>
+
+
+
+
+select Name: updateTaskStateByBatchNo
+<update id="updateTaskStateByBatchNo" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="recordStat!=null">
+                Record_Stat = #{recordStat, jdbcType=VARCHAR},
+            </if>
+            <if test="taskCommTm!=null">
+                Task_Comm_Tm = #{taskCommTm, jdbcType=VARCHAR},
+            </if>
+            <if test="timest!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+    </update>
+
+
+
+select Name: updateTaskStateAndRetryTimesByBatchNo
+<update id="updateTaskStateAndRetryTimesByBatchNo" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="recordStat!=null">
+                Record_Stat = #{recordStat, jdbcType=INTEGER},
+            </if>
+            <if test="batTaskRetryTms!=null">
+                Bat_Task_Retry_Tms = #{batTaskRetryTms, jdbcType=INTEGER},
+            </if>
+            <if test="taskCommTm!=null">
+                Task_Comm_Tm = #{taskCommTm, jdbcType=VARCHAR},
+            </if>
+            <if test="timest!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+    </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective">
+        update capbcb_file_info
+        <set>
+            <if test="tranDt!=null">
+                Tran_Dt = #{tranDt},
+            </if>
+            <if test="fileDescb!=null">
+                File_Descb = #{fileDescb},
+            </if>
+            <if test="srcFileRoute!=null">
+                Src_File_Route = #{srcFileRoute},
+            </if>
+            <if test="totChkRsltTypeCdProceNum!=null">
+                Tot_Chk_Rslt_Type_Cd_Proce_Num = #{totChkRsltTypeCdProceNum},
+            </if>
+            <if test="sucChkRsltTypeCdTotNum!=null">
+                Suc_Chk_Rslt_Type_Cd_Tot_Num = #{sucChkRsltTypeCdTotNum},
+            </if>
+            <if test="failChkRsltTypeCdTotNum!=null">
+                Fail_Chk_Rslt_Type_Cd_Tot_Num = #{failChkRsltTypeCdTotNum},
+            </if>
+            <if test="fileProceStat!=null">
+                File_Proce_Stat = #{fileProceStat},
+            </if>
+            <if test="errInfo!=null">
+                Bat_File_Proce_Err_Info = #{errInfo},
+            </if>
+            <if test="chkRsltTypeCodeFileRoute!=null">
+                Chk_Rslt_Type_Code_File_Route = #{chkRsltTypeCodeFileRoute},
+            </if>
+            <if test="sucChkRsltTypeCdFileRoute!=null">
+                Suc_Chk_Rslt_Type_Cd_File_Route = #{sucChkRsltTypeCdFileRoute},
+            </if>
+            <if test="failChkRsltTypeCdFileRoute!=null">
+                Fail_Chk_Rslt_Type_Cd_File_Route = #{failChkRsltTypeCdFileRoute},
+            </if>
+            <if test="recordRegiTm!=null">
+                Record_Regi_Tm = #{recordRegiTm},
+            </if>
+            <if test="recordUpdTm!=null">
+                Record_Upd_Tm = #{recordUpdTm},
+            </if>
+            <if test="proceFailSDataSaveFileRoute!=null">
+                Proce_Fail_S_Data_Save_File_Route = #{proceFailSDataSaveFileRoute},
+            </if>
+            <if test="batTaskId!=null">
+                Bat_Task_id = #{batTaskId},
+            </if>
+            <if test="mainFileProceTotNum!=null">
+                Main_File_Proce_Tot_Num = #{mainFileProceTotNum},
+            </if>
+            <if test="mainFileProceSucTotNum!=null">
+                Main_File_Proce_Suc_Tot_Num = #{mainFileProceSucTotNum},
+            </if>
+            <if test="mainFileProceFailTotNum!=null">
+                Main_File_Proce_Fail_Tot_Num = #{mainFileProceFailTotNum},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No = #{batNo}
+    </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective">
+        update capbcb_file_info_sub
+        <set>
+            <if test="batNo!=null">
+                Bat_Task_Bat_No = #{batNo},
+            </if>
+            <if test="tranDt!=null">
+                Tran_Dt = #{tranDt},
+            </if>
+            <if test="fileDescb!=null">
+                File_Descb = #{fileDescb},
+            </if>
+            <if test="unitFileRoute!=null">
+                Unit_File_Route = #{unitFileRoute},
+            </if>
+            <if test="totChkRsltTypeCdProceNum!=null">
+                Tot_Chk_Rslt_Type_Cd_Proce_Num = #{totChkRsltTypeCdProceNum},
+            </if>
+            <if test="sucChkRsltTypeCdTotNum!=null">
+                Suc_Chk_Rslt_Type_Cd_Tot_Num = #{sucChkRsltTypeCdTotNum},
+            </if>
+            <if test="failChkRsltTypeCdTotNum!=null">
+                Fail_Chk_Rslt_Type_Cd_Tot_Num = #{failChkRsltTypeCdTotNum},
+            </if>
+            <if test="unitFileProceStat!=null">
+                Unit_File_Proce_Stat = #{unitFileProceStat},
+            </if>
+            <if test="errInfo!=null">
+                Bat_File_Proce_Err_Info = #{errInfo},
+            </if>
+            <if test="chkRsltTypeCdUnitFileRoute!=null">
+                Chk_Rslt_Type_Cd_Unit_File_Route = #{chkRsltTypeCdUnitFileRoute},
+            </if>
+            <if test="sucChkRsltTypeCdUnitFileRoute!=null">
+                Suc_Chk_Rslt_Type_Cd_Unit_File_Route = #{sucChkRsltTypeCdUnitFileRoute},
+            </if>
+            <if test="failChkRsltTypeCdUnitFileRoute!=null">
+                Fail_Chk_Rslt_Type_Cd_Unit_File_Route = #{failChkRsltTypeCdUnitFileRoute},
+            </if>
+            <if test="recordRegiTm!=null">
+                Record_Regi_Tm = #{recordRegiTm},
+            </if>
+            <if test="recordUpdTm!=null">
+                Record_Upd_Tm = #{recordUpdTm},
+            </if>
+            <if test="unitNo!=null">
+                Unit_No = #{unitNo},
+            </if>
+            <if test="totChkRsltTypeCdFile!=null">
+                Tot_Chk_Rslt_Type_Cd_File = #{totChkRsltTypeCdFile},
+            </if>
+            <if test="sucChkRsltTypeCdFile!=null">
+                Suc_Chk_Rslt_Type_Cd_File = #{sucChkRsltTypeCdFile},
+            </if>
+            <if test="failChkRsltTypeCdFile!=null">
+                Fail_Chk_Rslt_Type_Cd_File = #{failChkRsltTypeCdFile},
+            </if>
+        </set>
+        WHERE Sub_Bat_No = #{subBatNo}
+    </update>
+
+
+
+select Name: update
+<update id="update">
+        update capbcp_btch_exec_ctrl
+        set btch_ctrl_val = #{flag}
+        where sys_id_num = "020139" and btch_ctrl_id = "wthrchdt"
+    </update>
+
+
+
+select Name: updSysDt
+<update id="updSysDt" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcpTxnSysDtDo">
+        update capbcp_txn_sys_dt
+        <set>
+            <if test="lastLastTmTranDt!=null">Last_Last_Tm_Tran_Dt = #{lastLastTmTranDt},</if>
+            <if test="lastTmTradiDt!=null">Last_Tm_Tradi_Dt = #{lastTmTradiDt},</if>
+            <if test="tranDt!=null">Tran_Dt = #{tranDt},</if>
+            <if test="nextTranDt!=null">Next_Tran_Dt = #{nextTranDt},</if>
+            <if test="basedNextTranDt!=null">Based_Next_Tran_Dt = #{basedNextTranDt},</if>
+            <if test="endOfTheYearFinalAcctDt!=null">End_Of_The_Year_Final_Acct_Dt = #{endOfTheYearFinalAcctDt}</if>
+        </set>
+    </update>
+
+
+
+select Name: updateDateFlag
+<update id="updateDateFlag" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcpTxnSysDtDo">
+        update capbcp_txn_sys_dt
+        <set>
+            <if test="readSerType!=null">Read_Ser_Type = #{readSerType}</if>
+        </set>
+    </update>
+
+
+
+select Name: updateOne
+<update id="updateOne" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleDO">
+        update capolp_code_rule
+        <set>
+            <if test="pkId != null">
+                Pk_Id = #{pkId},
+            </if>
+            <if test="encRuleCreCd != null">
+                Enc_Rule_Cre_Cd = #{encRuleCreCd},
+            </if>
+            <if test="encRuleCreCdDescb != null">
+                Enc_Rule_Cre_Cd_Descb = #{encRuleCreCdDescb},
+            </if>
+            <if test="encLen != null">
+                Enc_Len = #{encLen},
+            </if>
+            <if test="belModu != null">
+                Bel_Modu = #{belModu},
+            </if>
+            <if test="lPCd != null">
+                LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell != null">
+                Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst != null">
+                Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt != null">
+                Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm != null">
+                Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat != null">
+                Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat != null">
+                Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo != null">
+                Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="optimLockVersNo  != null">
+                Optim_Lock_Vers_No = #{optimLockVersNo },
+            </if>
+
+        </set>
+        <where>
+            Enc_Rule_Cre_Cd = #{encRuleCreCd}
+            <if test="lPCd!=null">
+                and LP_Cd = #{lPCd}
+            </if>
+        </where>
+    </update>
+
+
+select Name: updateOne
+<update id="updateOne" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpSerlNumDO">
+        update capolp_serl_num
+        <set>
+            <if test="seriNo != null">
+                Seri_No = #{seriNo},
+            </if>
+            <if test="encRuleCreCd != null">
+                Enc_Rule_Cre_Cd = #{encRuleCreCd},
+            </if>
+            <if test="seriNoCateg != null">
+                Seri_No_Categ = #{seriNoCateg},
+            </if>
+            <if test="seriNoResetCyc != null">
+                Seri_No_Reset_Cyc = #{seriNoResetCyc},
+            </if>
+            <if test="lastTmTradiDt != null">
+                Last_Tm_Tradi_Dt = #{lastTmTradiDt},
+            </if>
+            <if test="lPCd != null">
+                LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell != null">
+                Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst != null">
+                Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt != null">
+                Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm != null">
+                Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat != null">
+                Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat != null">
+                Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo != null">
+                Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="optimLockVersNo != null">
+                Optim_Lock_Vers_No = #{optimLockVersNo},
+            </if>
+        </set>
+        where
+        Seri_No_Categ = #{seriNoCateg} and Enc_Rule_Cre_Cd = #{encRuleCreCd}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </update>
+
+
+select Name: updateWithDeltaNum
+<update id="updateWithDeltaNum">
+        update capolp_serl_num
+        set Seri_No = Seri_No + #{qty}
+        where Seri_No_Categ = #{seriNoCateg}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </update>
+
+
+select Name: update
+<update id="update">
+        update capbcp_sms_name_id
+        set last_re_time = #{timeStr, jdbcType=VARCHAR}
+        where 1=1
+    </update>
+
+
+
+select Name: updateTaskPriorityByBatchNo
+<update id="updateTaskPriorityByBatchNo" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="taskPrio!=null">
+                Task_Prio = #{taskPrio, jdbcType=INTEGER},
+            </if>
+            <if test="timest!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+    </update>
+
+
+
+select Name: updateTaskPriorityByBatchNoAndOldPriority
+<update id="updateTaskPriorityByBatchNoAndOldPriority" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="taskPriority!=null">
+                Task_Prio = #{taskPriority, jdbcType=INTEGER},
+            </if>
+            <if test="timestamp!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR} and Task_Prio=#{oldTaskPriority,jdbcType=VARCHAR}
+    </update>
+
+
+
+
+select Name: updateTaskStateByBatchNo
+<update id="updateTaskStateByBatchNo" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="recordStat!=null">
+                Record_Stat = #{recordStat, jdbcType=VARCHAR},
+            </if>
+            <if test="taskCommTm!=null">
+                Task_Comm_Tm = #{taskCommTm, jdbcType=VARCHAR},
+            </if>
+            <if test="timest!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+    </update>
+
+
+
+select Name: updateTaskStateAndRetryTimesByBatchNo
+<update id="updateTaskStateAndRetryTimesByBatchNo" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcbOlbctskDO">
+        UPDATE capbcb_olbctsk
+        <set>
+            <if test="recordStat!=null">
+                Record_Stat = #{recordStat, jdbcType=INTEGER},
+            </if>
+            <if test="batTaskRetryTms!=null">
+                Bat_Task_Retry_Tms = #{batTaskRetryTms, jdbcType=INTEGER},
+            </if>
+            <if test="taskCommTm!=null">
+                Task_Comm_Tm = #{taskCommTm, jdbcType=VARCHAR},
+            </if>
+            <if test="timest!=null">
+                Timest = #{timest, jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No=#{batTaskBatNo, jdbcType=VARCHAR}
+    </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective">
+        update capbcb_file_info
+        <set>
+            <if test="tranDt!=null">
+                Tran_Dt = #{tranDt},
+            </if>
+            <if test="fileDescb!=null">
+                File_Descb = #{fileDescb},
+            </if>
+            <if test="srcFileRoute!=null">
+                Src_File_Route = #{srcFileRoute},
+            </if>
+            <if test="totChkRsltTypeCdProceNum!=null">
+                Tot_Chk_Rslt_Type_Cd_Proce_Num = #{totChkRsltTypeCdProceNum},
+            </if>
+            <if test="sucChkRsltTypeCdTotNum!=null">
+                Suc_Chk_Rslt_Type_Cd_Tot_Num = #{sucChkRsltTypeCdTotNum},
+            </if>
+            <if test="failChkRsltTypeCdTotNum!=null">
+                Fail_Chk_Rslt_Type_Cd_Tot_Num = #{failChkRsltTypeCdTotNum},
+            </if>
+            <if test="fileProceStat!=null">
+                File_Proce_Stat = #{fileProceStat},
+            </if>
+            <if test="errInfo!=null">
+                Bat_File_Proce_Err_Info = #{errInfo},
+            </if>
+            <if test="chkRsltTypeCodeFileRoute!=null">
+                Chk_Rslt_Type_Code_File_Route = #{chkRsltTypeCodeFileRoute},
+            </if>
+            <if test="sucChkRsltTypeCdFileRoute!=null">
+                Suc_Chk_Rslt_Type_Cd_File_Route = #{sucChkRsltTypeCdFileRoute},
+            </if>
+            <if test="failChkRsltTypeCdFileRoute!=null">
+                Fail_Chk_Rslt_Type_Cd_File_Route = #{failChkRsltTypeCdFileRoute},
+            </if>
+            <if test="recordRegiTm!=null">
+                Record_Regi_Tm = #{recordRegiTm},
+            </if>
+            <if test="recordUpdTm!=null">
+                Record_Upd_Tm = #{recordUpdTm},
+            </if>
+            <if test="proceFailSDataSaveFileRoute!=null">
+                Proce_Fail_S_Data_Save_File_Route = #{proceFailSDataSaveFileRoute},
+            </if>
+            <if test="batTaskId!=null">
+                Bat_Task_id = #{batTaskId},
+            </if>
+            <if test="mainFileProceTotNum!=null">
+                Main_File_Proce_Tot_Num = #{mainFileProceTotNum},
+            </if>
+            <if test="mainFileProceSucTotNum!=null">
+                Main_File_Proce_Suc_Tot_Num = #{mainFileProceSucTotNum},
+            </if>
+            <if test="mainFileProceFailTotNum!=null">
+                Main_File_Proce_Fail_Tot_Num = #{mainFileProceFailTotNum},
+            </if>
+        </set>
+        WHERE Bat_Task_Bat_No = #{batNo}
+    </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective">
+        update capbcb_file_info_sub
+        <set>
+            <if test="batNo!=null">
+                Bat_Task_Bat_No = #{batNo},
+            </if>
+            <if test="tranDt!=null">
+                Tran_Dt = #{tranDt},
+            </if>
+            <if test="fileDescb!=null">
+                File_Descb = #{fileDescb},
+            </if>
+            <if test="unitFileRoute!=null">
+                Unit_File_Route = #{unitFileRoute},
+            </if>
+            <if test="totChkRsltTypeCdProceNum!=null">
+                Tot_Chk_Rslt_Type_Cd_Proce_Num = #{totChkRsltTypeCdProceNum},
+            </if>
+            <if test="sucChkRsltTypeCdTotNum!=null">
+                Suc_Chk_Rslt_Type_Cd_Tot_Num = #{sucChkRsltTypeCdTotNum},
+            </if>
+            <if test="failChkRsltTypeCdTotNum!=null">
+                Fail_Chk_Rslt_Type_Cd_Tot_Num = #{failChkRsltTypeCdTotNum},
+            </if>
+            <if test="unitFileProceStat!=null">
+                Unit_File_Proce_Stat = #{unitFileProceStat},
+            </if>
+            <if test="errInfo!=null">
+                Bat_File_Proce_Err_Info = #{errInfo},
+            </if>
+            <if test="chkRsltTypeCdUnitFileRoute!=null">
+                Chk_Rslt_Type_Cd_Unit_File_Route = #{chkRsltTypeCdUnitFileRoute},
+            </if>
+            <if test="sucChkRsltTypeCdUnitFileRoute!=null">
+                Suc_Chk_Rslt_Type_Cd_Unit_File_Route = #{sucChkRsltTypeCdUnitFileRoute},
+            </if>
+            <if test="failChkRsltTypeCdUnitFileRoute!=null">
+                Fail_Chk_Rslt_Type_Cd_Unit_File_Route = #{failChkRsltTypeCdUnitFileRoute},
+            </if>
+            <if test="recordRegiTm!=null">
+                Record_Regi_Tm = #{recordRegiTm},
+            </if>
+            <if test="recordUpdTm!=null">
+                Record_Upd_Tm = #{recordUpdTm},
+            </if>
+            <if test="unitNo!=null">
+                Unit_No = #{unitNo},
+            </if>
+            <if test="totChkRsltTypeCdFile!=null">
+                Tot_Chk_Rslt_Type_Cd_File = #{totChkRsltTypeCdFile},
+            </if>
+            <if test="sucChkRsltTypeCdFile!=null">
+                Suc_Chk_Rslt_Type_Cd_File = #{sucChkRsltTypeCdFile},
+            </if>
+            <if test="failChkRsltTypeCdFile!=null">
+                Fail_Chk_Rslt_Type_Cd_File = #{failChkRsltTypeCdFile},
+            </if>
+        </set>
+        WHERE Sub_Bat_No = #{subBatNo}
+    </update>
+
+
+
+select Name: update
+<update id="update">
+        update capbcp_btch_exec_ctrl
+        set btch_ctrl_val = #{flag}
+        where sys_id_num = "020139" and btch_ctrl_id = "wthrchdt"
+    </update>
+
+
+
+select Name: updSysDt
+<update id="updSysDt" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcpTxnSysDtDo">
+        update capbcp_txn_sys_dt
+        <set>
+            <if test="lastLastTmTranDt!=null">Last_Last_Tm_Tran_Dt = #{lastLastTmTranDt},</if>
+            <if test="lastTmTradiDt!=null">Last_Tm_Tradi_Dt = #{lastTmTradiDt},</if>
+            <if test="tranDt!=null">Tran_Dt = #{tranDt},</if>
+            <if test="nextTranDt!=null">Next_Tran_Dt = #{nextTranDt},</if>
+            <if test="basedNextTranDt!=null">Based_Next_Tran_Dt = #{basedNextTranDt},</if>
+            <if test="endOfTheYearFinalAcctDt!=null">End_Of_The_Year_Final_Acct_Dt = #{endOfTheYearFinalAcctDt}</if>
+        </set>
+    </update>
+
+
+
+select Name: updateDateFlag
+<update id="updateDateFlag" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapbcpTxnSysDtDo">
+        update capbcp_txn_sys_dt
+        <set>
+            <if test="readSerType!=null">Read_Ser_Type = #{readSerType}</if>
+        </set>
+    </update>
+
+
+
+select Name: updateOne
+<update id="updateOne" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpCodeRuleDO">
+        update capolp_code_rule
+        <set>
+            <if test="pkId != null">
+                Pk_Id = #{pkId},
+            </if>
+            <if test="encRuleCreCd != null">
+                Enc_Rule_Cre_Cd = #{encRuleCreCd},
+            </if>
+            <if test="encRuleCreCdDescb != null">
+                Enc_Rule_Cre_Cd_Descb = #{encRuleCreCdDescb},
+            </if>
+            <if test="encLen != null">
+                Enc_Len = #{encLen},
+            </if>
+            <if test="belModu != null">
+                Bel_Modu = #{belModu},
+            </if>
+            <if test="lPCd != null">
+                LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell != null">
+                Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst != null">
+                Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt != null">
+                Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm != null">
+                Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat != null">
+                Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat != null">
+                Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo != null">
+                Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="optimLockVersNo  != null">
+                Optim_Lock_Vers_No = #{optimLockVersNo },
+            </if>
+
+        </set>
+        <where>
+            Enc_Rule_Cre_Cd = #{encRuleCreCd}
+            <if test="lPCd!=null">
+                and LP_Cd = #{lPCd}
+            </if>
+        </where>
+    </update>
+
+
+select Name: updateOne
+<update id="updateOne" parameterType="com.cebbank.ncbs.ap.base.dao.entity.CapOlpSerlNumDO">
+        update capolp_serl_num
+        <set>
+            <if test="seriNo != null">
+                Seri_No = #{seriNo},
+            </if>
+            <if test="encRuleCreCd != null">
+                Enc_Rule_Cre_Cd = #{encRuleCreCd},
+            </if>
+            <if test="seriNoCateg != null">
+                Seri_No_Categ = #{seriNoCateg},
+            </if>
+            <if test="seriNoResetCyc != null">
+                Seri_No_Reset_Cyc = #{seriNoResetCyc},
+            </if>
+            <if test="lastTmTradiDt != null">
+                Last_Tm_Tradi_Dt = #{lastTmTradiDt},
+            </if>
+            <if test="lPCd != null">
+                LP_Cd = #{lPCd},
+            </if>
+            <if test="mainteTell != null">
+                Mainte_Tell = #{mainteTell},
+            </if>
+            <if test="mainteInst != null">
+                Mainte_Inst = #{mainteInst},
+            </if>
+            <if test="mainteDt != null">
+                Mainte_Dt = #{mainteDt},
+            </if>
+            <if test="mainteTm != null">
+                Mainte_Tm = #{mainteTm},
+            </if>
+            <if test="recordStat != null">
+                Record_Stat = #{recordStat},
+            </if>
+            <if test="overaSitAffStat != null">
+                Overa_Sit_Aff_Stat = #{overaSitAffStat},
+            </if>
+            <if test="overaSitAffSeqNo != null">
+                Overa_Sit_Aff_Seq_No = #{overaSitAffSeqNo},
+            </if>
+            <if test="optimLockVersNo != null">
+                Optim_Lock_Vers_No = #{optimLockVersNo},
+            </if>
+        </set>
+        where
+        Seri_No_Categ = #{seriNoCateg} and Enc_Rule_Cre_Cd = #{encRuleCreCd}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </update>
+
+
+select Name: updateWithDeltaNum
+<update id="updateWithDeltaNum">
+        update capolp_serl_num
+        set Seri_No = Seri_No + #{qty}
+        where Seri_No_Categ = #{seriNoCateg}
+        <if test="lPCd!=null">
+            and LP_Cd = #{lPCd}
+        </if>
+    </update>

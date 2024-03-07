@@ -1,0 +1,103 @@
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        UPDATE cappab_param_main_version SET
+        param_version = #{mainVerNo, jdbcType=BIGINT}
+        , push_flag = #{pushFlag, jdbcType=INTEGER}
+        , push_fail_times = #{pushFailTimes, jdbcType=INTEGER}
+        , create_time = #{createTime, jdbcType=VARCHAR}
+        , update_time = #{updateTime, jdbcType=VARCHAR}
+        WHERE id=#{id, jdbcType=BIGINT}
+    </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        UPDATE cappab_param_main_version
+        <set>
+            <if test=" paramVersion!=null">
+                param_version = #{paramVersion, jdbcType=BIGINT},
+            </if>
+            <if test="pushFlag!=null">
+                push_flag = #{pushFlag, jdbcType=INTEGER},
+            </if>
+            <if test="pushFailTimes!=null">
+                push_fail_times = #{pushFailTimes, jdbcType=INTEGER},
+            </if>
+            <if test="createTime!=null">
+                create_time = #{createTime, jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime!=null">
+                update_time = #{updateTime, jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE id=#{id, jdbcType=BIGINT}
+    </update>
+
+
+
+select Name: batchUpdate
+<update id="batchUpdate" parameterType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        <foreach collection="arrayList" item="it" separator=";" open="" close="">
+            update cappab_param_main_version set
+            param_version = #{it.paramVersion, jdbcType=BIGINT},
+            push_flag= #{it.pushFlag, jdbcType=INTEGER},
+            push_fail_times = #{it.pushFailTimes, jdbcType=INTEGER},
+            create_time = #{it.createTime, jdbcType=VARCHAR},
+            update_time = #{it.updateTime, jdbcType=VARCHAR}
+            where id = #{it.id,jdbcType=BIGINT}
+        </foreach>
+    </update>
+
+
+
+select Name: updateByPrimaryKey
+<update id="updateByPrimaryKey" parameterType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        UPDATE cappab_param_main_version SET
+        param_version = #{mainVerNo, jdbcType=BIGINT}
+        , push_flag = #{pushFlag, jdbcType=INTEGER}
+        , push_fail_times = #{pushFailTimes, jdbcType=INTEGER}
+        , create_time = #{createTime, jdbcType=VARCHAR}
+        , update_time = #{updateTime, jdbcType=VARCHAR}
+        WHERE id=#{id, jdbcType=BIGINT}
+    </update>
+
+
+
+select Name: updateByPrimaryKeySelective
+<update id="updateByPrimaryKeySelective" parameterType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        UPDATE cappab_param_main_version
+        <set>
+            <if test=" paramVersion!=null">
+                param_version = #{paramVersion, jdbcType=BIGINT},
+            </if>
+            <if test="pushFlag!=null">
+                push_flag = #{pushFlag, jdbcType=INTEGER},
+            </if>
+            <if test="pushFailTimes!=null">
+                push_fail_times = #{pushFailTimes, jdbcType=INTEGER},
+            </if>
+            <if test="createTime!=null">
+                create_time = #{createTime, jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime!=null">
+                update_time = #{updateTime, jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE id=#{id, jdbcType=BIGINT}
+    </update>
+
+
+
+select Name: batchUpdate
+<update id="batchUpdate" parameterType="com.cebbank.ncbs.ap.param.entity.CappabParamMainVersionDO">
+        <foreach collection="arrayList" item="it" separator=";" open="" close="">
+            update cappab_param_main_version set
+            param_version = #{it.paramVersion, jdbcType=BIGINT},
+            push_flag= #{it.pushFlag, jdbcType=INTEGER},
+            push_fail_times = #{it.pushFailTimes, jdbcType=INTEGER},
+            create_time = #{it.createTime, jdbcType=VARCHAR},
+            update_time = #{it.updateTime, jdbcType=VARCHAR}
+            where id = #{it.id,jdbcType=BIGINT}
+        </foreach>
+    </update>
